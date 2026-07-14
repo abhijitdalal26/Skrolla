@@ -21,9 +21,17 @@ file is the one to re-check against, then port matching updates into `index.html
 markup.
 
 Colors/tokens match `Skrolla/android/Skrolla/app/src/main/java/com/skrolla/app/ui/theme/Color.kt`
-exactly: bg `#121212`/`#141414`/`#1E1E1E`, accent violet `#8B5CF6` (this is the real shipped
-accent — an amber palette was proposed in `app-layout/screens/09-product-vision.md` but never
-implemented in code, so violet is correct here). Font is Inter, same weights as the app.
+exactly — "Night Reading Light" (shipped 2026-07-13, replacing the earlier violet/Inter look this
+file used to describe): cool blue-black chrome `#0B0E15`/`#171C29`/`#1F2537`, one warm amber
+accent `#F0A94A` (dim `#C98A38`, ~16%-alpha soft variant for chip/pill backgrounds and glows), a
+separate rose `#FF6B81` for Like state, and a deliberately duller gold `#C9A44C` reserved only for
+NYT/award badges. Gradients/glows (hero headline, CTA headline, ambient background, button glow)
+are recalculated to read amber, not a violet gradient with the hex swapped. Fonts are Manrope
+(sans, everything scanned — nav, body, buttons, form) + Newsreader (serif, only the hero h1 and
+showcase/spotlight/final-CTA `h2`s — the site's own "one big focal thing" moments), same
+allocation logic as the app; loaded via the Google Fonts CDN link in `index.html`'s `<head>`, not
+self-hosted. Primary/CTA buttons use `var(--bg-primary)` (not white) as text color against the
+amber fill — white-on-amber measures ~2:1 contrast (fails WCAG AA for text), dark-on-amber ~9.6:1.
 
 Book covers are live Google Books thumbnail URLs by ISBN (same technique the design file uses):
 `https://books.google.com/books/content?vid=ISBN:{isbn}&printsec=frontcover&img=1&zoom=1&edge=curl`
@@ -37,5 +45,6 @@ open `index.html`.
 
 - Waitlist form only writes to `localStorage` (`skrolla_waitlist` key) — no backend/email
   service connected yet.
-- No deploy target configured yet (Firebase Hosting is already set up for the `skrolla-cba2a`
-  project and would be the natural choice — see `../Skrolla/CLAUDE.md` for backend infra).
+- Deployed via Vercel (`.vercel/project.json` → project `skrolla`, org `team_4aLAbYk0qPZR0U0bw1R3Eoun`);
+  `vercel --prod` from this directory ships it. Firebase Hosting (`skrolla-app-2026`) was
+  considered but Vercel is what's actually wired.
