@@ -198,3 +198,103 @@ if (ddTrack && ddCards.length > 0) {
     ddTrack.style.transform = `translateX(-${ddIndex * stepOffset}px)`;
   }, 4000);
 }
+
+// ============================================================
+// TFIOS Story Cards — Phone 3 interactive swipe & text animation
+// ============================================================
+const TFIOS_CARDS = [
+  {
+    title: 'Terminal Diagnosis',
+    body: 'Hazel, a teenager with thyroid cancer that has spread to her lungs, has resigned herself to an early death. Her life is forever changed when she meets Augustus Waters, a charming and handsome teen who lost his leg to bone cancer. Despite their illnesses, they share a dark humor and a deep understanding of the meaning of life.',
+    glow: 'rgba(0, 120, 180, 0.40)',
+  },
+  {
+    title: 'Falling in Love',
+    body: 'As Hazel and Augustus grow closer, they must confront the harsh realities of their mortality and the impermanence of their love. Hazel\'s feelings for Augustus are put to the test when she learns about his own health struggles, forcing her to reevaluate her priorities and fears. Their love becomes a source of comfort and strength, but also a reminder of the fragility of life.',
+    glow: 'rgba(0, 90, 160, 0.38)',
+  },
+  {
+    title: 'Shattered Illusions',
+    body: 'Augustus\'s health takes a devastating turn, and Hazel is forced to confront the possibility of losing him. A trip to Amsterdam to meet their favorite author, Peter Van Houten, ends in disaster, shattering their illusions about life, love, and the meaning of it all. This turning point marks a shift in Hazel\'s perspective, as she begins to appreciate the beauty and complexity of life, even in the face of suffering.',
+    glow: 'rgba(10, 60, 120, 0.42)',
+  },
+  {
+    title: 'The Final Goodbye',
+    body: 'As Augustus\'s condition worsens, Hazel and he come to terms with their situation. Augustus passes away, leaving Hazel devastated. In the aftermath, Hazel discovers a letter Augustus had written for her — a final declaration of love that transforms her grief into something more bearable.',
+    glow: 'rgba(20, 40, 100, 0.45)',
+  },
+  {
+    title: 'An Okay Infinity',
+    body: 'Hazel comes to understand that love, even when brief and filled with loss, is worth experiencing. She accepts that Augustus\'s love for her — and hers for him — made an infinity within their numbered days. She learns to live in the present, cherishing every moment and finding peace in the fact that they had each other, even if only for a little while.',
+    glow: 'rgba(30, 80, 150, 0.38)',
+  },
+];
+
+let tfiosIndex = 0;
+
+const tfiosTitle = document.getElementById('tfiosCardTitle');
+const tfiosBody = document.getElementById('tfiosCardBody');
+const tfiosCardNum = document.getElementById('tfiosCardNum');
+const tfiosGlow = document.querySelector('.tfios-card-glow');
+const tfiosPbs = document.querySelectorAll('.tfios-pb');
+
+function setTfiosCard(idx, direction) {
+  if (!tfiosTitle || !tfiosBody) return;
+  const card = TFIOS_CARDS[idx];
+
+  // Exit animation
+  tfiosTitle.classList.add('exit');
+  tfiosBody.classList.add('exit');
+
+  setTimeout(() => {
+    tfiosTitle.textContent = card.title;
+    tfiosBody.textContent = card.body;
+    if (tfiosCardNum) tfiosCardNum.textContent = `${idx + 1} / ${TFIOS_CARDS.length}`;
+
+    // Update glow colour
+    if (tfiosGlow) {
+      tfiosGlow.style.background = `radial-gradient(ellipse 80% 60% at 50% 90%, ${card.glow} 0%, transparent 100%)`;
+    }
+
+    // Update progress bars
+    tfiosPbs.forEach((pb, i) => {
+      pb.classList.toggle('tfios-pb-active', i <= idx);
+    });
+
+    // Remove exit, add enter
+    tfiosTitle.classList.remove('exit');
+    tfiosBody.classList.remove('exit');
+    tfiosTitle.classList.add('enter');
+    tfiosBody.classList.add('enter');
+
+    requestAnimationFrame(() => {
+      requestAnimationFrame(() => {
+        tfiosTitle.classList.remove('enter');
+        tfiosBody.classList.remove('enter');
+      });
+    });
+  }, 260);
+}
+
+const tfiosPrev = document.getElementById('tfiosPrev');
+const tfiosNext = document.getElementById('tfiosNext');
+
+if (tfiosPrev) {
+  tfiosPrev.addEventListener('click', () => {
+    tfiosIndex = tfiosIndex > 0 ? tfiosIndex - 1 : TFIOS_CARDS.length - 1;
+    setTfiosCard(tfiosIndex, 'prev');
+  });
+}
+
+if (tfiosNext) {
+  tfiosNext.addEventListener('click', () => {
+    tfiosIndex = (tfiosIndex + 1) % TFIOS_CARDS.length;
+    setTfiosCard(tfiosIndex, 'next');
+  });
+}
+
+// Auto-advance phone 3 cards every 4 seconds
+setInterval(() => {
+  tfiosIndex = (tfiosIndex + 1) % TFIOS_CARDS.length;
+  setTfiosCard(tfiosIndex, 'next');
+}, 4000);

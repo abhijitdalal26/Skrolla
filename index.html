@@ -454,157 +454,174 @@
 </section>
 
 <!-- ============================================================ STORYMODE SPOTLIGHT -->
-<section class="spotlight">
+<section class="spotlight" id="storymode">
   <div class="wrap">
     <div class="spotlight-head reveal">
       <div class="tag" style="justify-content:center">✨ StoryMode</div>
       <h2>Ask the book anything<br>before you commit.</h2>
-      <p>An AI chat for any book, in your language, streaming back in real time. Stay spoiler-free for the vibe, the comparisons, the Reddit consensus — or flip to Full Story and generate Story Cards: a swipeable, shareable recap deck anchored to the exact question that sparked it, saved to your Library for good.</p>
-      <ul class="feature-list" style="max-width:520px;margin:0 auto;text-align:left">
-        <li><span class="fico"><svg viewBox="0 0 24 24" fill="none" stroke="#F0A94A" stroke-width="3" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg></span><b>Story Cards, on demand.</b> Tap once to turn any part of the conversation into a clean recap deck — no separate wiki tab, no re-reading the whole chat.</li>
-        <li><span class="fico"><svg viewBox="0 0 24 24" fill="none" stroke="#F0A94A" stroke-width="3" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg></span><b>Share the deck.</b> Send a Story Cards set straight out of the app when you want a friend to catch up before book club.</li>
-        <li><span class="fico"><svg viewBox="0 0 24 24" fill="none" stroke="#F0A94A" stroke-width="3" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg></span><b>Pick up where you left off.</b> Every conversation persists per book — or start fresh with New Conversation whenever you want a clean slate.</li>
-      </ul>
+      <p>An AI that knows every book. Ask spoiler-free, go deep when ready — then generate a swipeable Story Cards deck anchored to the cover's own palette.</p>
     </div>
-    <div class="showcase-visual reveal-scale">
-      <div class="phone" id="storymodePhone" style="--pw:310px;--ph:660px">
-        <div class="notch"></div>
-        <div class="screen">
-          <div class="statusbar"><span>9:41</span><div class="icons">●●●</div></div>
-          
-          <!-- CHAT SCREEN VIEW -->
-          <div id="smChatView" class="sm-screen-view active">
-            <!-- Header -->
-            <div class="sm-header">
-              <svg class="sm-back-btn" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#9AA3B8" stroke-width="2" stroke-linecap="round"><polyline points="15 18 9 12 15 6"/></svg>
-              <div class="cover" style="width:26px;height:38px;border-radius:4px;background-image:url(covers/9780441013593.jpg)"></div>
-              <div class="sm-header-info">
-                <div class="sm-title">Dune</div>
-                <div class="sm-author">Frank Herbert</div>
-              </div>
-              <div class="sm-header-plus">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#9AA3B8" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="16"/><line x1="8" y1="12" x2="16" y2="12"/></svg>
-              </div>
-            </div>
-            
-            <!-- Chat Body -->
-            <div class="sm-chat-body">
-              <!-- Welcome message -->
-              <div class="sm-msg system">
-                <div class="sm-bubble" style="background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.08); border-radius:3px 16px 16px 16px;">
-                  Welcome to <b>StoryMode</b>! Ask anything about <i>Dune</i> — get spoiler-free reviews, character guides, or full plot recaps.
-                </div>
-              </div>
-              
-              <!-- Review query -->
-              <div class="sm-msg user">
-                <div class="sm-bubble">Is it worth reading?</div>
-              </div>
-              
-              <!-- AI review response -->
-              <div class="sm-msg system">
-                <div class="sm-bubble" style="background:#10131C; border:1px solid rgba(255,255,255,0.08); border-radius:3px 16px 16px 16px; line-height:1.45;">
-                  <i>Dune</i> is a sci-fi masterpiece. It features peerless worldbuilding (Arrakis, the spice, and giant sandworms) blended with deep political and philosophical themes. Readers love its epic scale.
-                </div>
-              </div>
 
-              <div class="sm-msg user">
-                <div class="sm-bubble">Generate Book Cards</div>
+    <!-- 3 Phones side by side -->
+    <div class="three-phones reveal-scale">
+
+      <!-- ── PHONE 1: Default Chat Window ── -->
+      <div class="triple-phone-wrap">
+        <div class="triple-label">Ask anything</div>
+        <div class="phone triple-phone" style="--pw:230px;--ph:490px">
+          <div class="notch"></div>
+          <div class="screen" style="background:#0B0E15;display:flex;flex-direction:column">
+            <div class="statusbar" style="flex-shrink:0"><span>10:52</span><div class="icons">●●●</div></div>
+            <div class="sm-header" style="flex-shrink:0">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#9AA3B8" stroke-width="2.5" stroke-linecap="round"><polyline points="15 18 9 12 15 6"/></svg>
+              <div style="width:22px;height:32px;border-radius:3px;background-image:url(images/fault-in-our-stars.jpg);background-size:cover;background-position:center;flex-shrink:0"></div>
+              <div class="sm-header-info">
+                <div class="sm-title" style="font-size:7.5px;font-weight:600">The Fault in Our Stars</div>
+                <div class="sm-author" style="font-size:6px">John Green</div>
               </div>
-              <div class="sm-msg system">
-                <div style="font-size:10px; color:#9AA3B8; margin-bottom:4px; padding-left:4px;">📚 5 Story Cards generated:</div>
-                <!-- Inline Cards Pager Container -->
-                <div class="sm-inline-pager" id="smInlinePagerBtn">
-                  <div class="sm-inline-card">
-                    <div class="sm-card-title">Arrakis Obsession</div>
-                    <div class="sm-card-body">Paul Atreides travels to the harsh desert planet Arrakis, the universe's only source of the invaluable spice melange. As political tensions boil and threats from House Harkonnen loom, Paul begins to discover his own path, realizing that this planet holds a fate greater than he ever imagined...</div>
-                  </div>
-                  <div class="sm-inline-card-peek"></div>
-                </div>
-                <!-- Pager Dots -->
-                <div class="sm-inline-dots">
-                  <span class="dot active"></span>
-                  <span class="dot"></span>
-                  <span class="dot"></span>
-                  <span class="dot"></span>
-                  <span class="dot"></span>
-                </div>
+              <div class="sm-header-plus"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#9AA3B8" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="16"/><line x1="8" y1="12" x2="16" y2="12"/></svg></div>
+            </div>
+            <div class="triple-chat-body">
+              <div style="text-align:center;color:#5C6478;font-size:6.5px;margin-bottom:9px">Ask me anything about this book</div>
+              <div class="tfios-chips-grid">
+                <div class="tfios-chip">Who is this for?</div>
+                <div class="tfios-chip">What do readers love?</div>
+                <div class="tfios-chip">Why should I read this?</div>
+                <div class="tfios-chip">What makes it special?</div>
+                <div class="tfios-chip">Is it worth it?</div>
+                <div class="tfios-chip">Just tell me the vibe</div>
+              </div>
+              <div style="text-align:center;color:#5C6478;font-size:6px;margin:8px 0">Already read it? Ask about the full story</div>
+              <div class="tfios-chips-grid">
+                <div class="tfios-chip spoiler-chip">What happens at the ending?</div>
+                <div class="tfios-chip spoiler-chip">Explain the big twist</div>
+                <div class="tfios-chip spoiler-chip">Walk me through the full plot</div>
+                <div class="tfios-chip spoiler-chip">What does the ending mean?</div>
+              </div>
+              <div class="tfios-gen-btn">
+                <svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+                Generate Book Cards
               </div>
             </div>
-            
-            <!-- Bottom Composer -->
-            <div class="sm-composer">
-              <div class="sm-chips">
-                <div class="sm-chip active">
-                  <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+            <div class="sm-composer" style="flex-shrink:0;padding:5px 8px">
+              <div class="sm-input-row">
+                <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#5C6478" stroke-width="2.2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+                <div class="sm-input" style="font-size:6.5px">Ask anything about this book...</div>
+                <svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="#9AA3B8" stroke-width="2.5"><line x1="12" y1="19" x2="12" y2="5"/><polyline points="5 12 12 5 19 12"/></svg>
+              </div>
+              <div class="sm-chips" style="margin-top:4px">
+                <div class="sm-chip" style="font-size:5.5px;padding:2.5px 6px;gap:3px">
+                  <svg width="6" height="6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"/><line x1="1" y1="1" x2="23" y2="23"/></svg>
                   <span>Spoilers</span>
                 </div>
               </div>
-              <div class="sm-input-row">
-                <div class="sm-plus-icon">
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#5C6478" stroke-width="2.2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── PHONE 2: Chat + Inline Cards (featured) ── -->
+      <div class="triple-phone-wrap center-phone">
+        <div class="triple-label active">Generate cards</div>
+        <div class="phone triple-phone featured-phone" style="--pw:250px;--ph:530px">
+          <div class="notch"></div>
+          <div class="screen" style="background:#0B0E15;display:flex;flex-direction:column">
+            <div class="statusbar" style="flex-shrink:0"><span>10:54</span><div class="icons">●●●</div></div>
+            <div class="sm-header" style="flex-shrink:0">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#9AA3B8" stroke-width="2.5" stroke-linecap="round"><polyline points="15 18 9 12 15 6"/></svg>
+              <div style="width:22px;height:32px;border-radius:3px;background-image:url(images/fault-in-our-stars.jpg);background-size:cover;background-position:center;flex-shrink:0"></div>
+              <div class="sm-header-info">
+                <div class="sm-title" style="font-size:7.5px;font-weight:600">The Fault in Our Stars</div>
+                <div class="sm-author" style="font-size:6px">John Green</div>
+              </div>
+              <div class="sm-header-plus"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#9AA3B8" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="16"/><line x1="8" y1="12" x2="16" y2="12"/></svg></div>
+            </div>
+            <div class="triple-chat-body" style="padding:8px 10px;gap:0;flex:1;overflow-y:hidden">
+              <div class="sm-msg user" style="margin-bottom:6px"><div class="sm-bubble" style="font-size:7.5px;padding:5px 9px">What makes it special?</div></div>
+              <div class="sm-msg system" style="margin-bottom:6px">
+                <div style="background:#10131C;border:1px solid rgba(255,255,255,0.08);border-radius:3px 12px 12px 12px;font-size:7px;padding:7px 9px;line-height:1.5;color:#F1F3F8">
+                  What makes <em>The Fault in Our Stars</em> so special is its honest take on life, love, and mortality. John Green tackles heavy themes with humor, wit, and sensitivity — it's a truly unforgettable read!
                 </div>
-                <div class="sm-input">Ask anything about this book...</div>
-                <div class="sm-send-btn">
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="19" x2="12" y2="5"/><polyline points="5 12 12 5 19 12"/></svg>
+              </div>
+              <div class="sm-msg user" style="margin-bottom:6px"><div class="sm-bubble" style="font-size:7.5px;padding:5px 9px;background:#3D2D10;border-color:#5A4020">Generate Book Cards</div></div>
+              <div style="font-size:6.5px;color:#9AA3B8;margin-bottom:4px;padding-left:2px">📚 5 Story Cards generated:</div>
+              <div class="tfios-inline-pager">
+                <div class="tfios-inline-card">
+                  <div style="font-size:9px;font-weight:700;color:#F1F3F8;margin-bottom:5px;line-height:1.2;font-family:'Playfair Display',serif">Terminal Diagnosis</div>
+                  <div style="font-size:6.5px;color:rgba(241,243,248,0.85);line-height:1.5">Hazel, a teenager with thyroid cancer that has spread to her lungs, has resigned herself to an early death. Her life is forever changed when she meets Augustus Waters...</div>
+                </div>
+                <div class="tfios-inline-peek"></div>
+              </div>
+              <div class="sm-inline-dots" style="margin-top:5px">
+                <span class="dot active"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span>
+              </div>
+            </div>
+            <div class="sm-composer" style="flex-shrink:0;padding:5px 8px">
+              <div class="sm-input-row">
+                <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#5C6478" stroke-width="2.2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+                <div class="sm-input" style="font-size:6.5px">Ask anything about this book...</div>
+                <svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="#9AA3B8" stroke-width="2.5"><line x1="12" y1="19" x2="12" y2="5"/><polyline points="5 12 12 5 19 12"/></svg>
+              </div>
+              <div class="sm-chips" style="margin-top:4px">
+                <div class="sm-chip active" style="font-size:5.5px;padding:2.5px 6px;gap:3px;background:rgba(240,169,74,0.15);border-color:rgba(240,169,74,0.5);color:#F0A94A">
+                  <svg width="6" height="6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+                  <span>Spoilers</span>
                 </div>
               </div>
             </div>
           </div>
-          
-          <!-- DEDICATED CARDS VIEW -->
-          <div id="smCardsView" class="sm-screen-view">
-            <!-- Header -->
-            <div class="sm-cards-header">
-              <svg id="smCardsBackBtn" class="sm-cards-back" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#9AA3B8" stroke-width="2.5" stroke-linecap="round"><polyline points="15 18 9 12 15 6"/></svg>
-              <div class="sm-cards-title-header">Dune</div>
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#9AA3B8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
+        </div>
+      </div>
+
+      <!-- ── PHONE 3: Dedicated Story Cards Screen ── -->
+      <div class="triple-phone-wrap">
+        <div class="triple-label">Swipe through insights</div>
+        <div class="phone triple-phone" style="--pw:230px;--ph:490px">
+          <div class="notch"></div>
+          <div class="screen" style="background:#0B0E15;padding:0;display:flex;flex-direction:column;overflow:hidden">
+            <div class="statusbar" style="flex-shrink:0;position:relative;z-index:2"><span>10:54</span><div class="icons">●●●</div></div>
+            <div style="display:flex;align-items:center;justify-content:space-between;padding:5px 12px 3px;flex-shrink:0;z-index:2">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#9AA3B8" stroke-width="2.5" stroke-linecap="round"><polyline points="15 18 9 12 15 6"/></svg>
+              <span style="font-size:8px;color:#F1F3F8;font-weight:600">The Fault in Our Stars</span>
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#9AA3B8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
             </div>
-            
-            <!-- Card content layout -->
-            <div class="sm-cards-content-wrap">
-              <!-- Progress Bars -->
-              <div class="sm-cards-progress">
-                <div class="progress-bar active"><div class="progress-fill"></div></div>
-                <div class="progress-bar"><div class="progress-fill"></div></div>
-                <div class="progress-bar"><div class="progress-fill"></div></div>
-                <div class="progress-bar"><div class="progress-fill"></div></div>
-                <div class="progress-bar"><div class="progress-fill"></div></div>
+            <div style="display:flex;gap:3px;padding:0 12px 5px;flex-shrink:0;z-index:2;align-items:center">
+              <div class="tfios-pb tfios-pb-active"></div>
+              <div class="tfios-pb"></div>
+              <div class="tfios-pb"></div>
+              <div class="tfios-pb"></div>
+              <div class="tfios-pb"></div>
+              <span style="font-size:6px;color:#9AA3B8;margin-left:3px;white-space:nowrap" id="tfiosCardNum">1 / 5</span>
+            </div>
+            <!-- Full card area -->
+            <div class="tfios-full-card" id="tfiosFullCard">
+              <div class="tfios-card-glow"></div>
+              <div class="tfios-card-text-overlay">
+                <div class="tfios-brand-row">
+                  <div class="tfios-brand-dot"></div>
+                  <span class="tfios-brand-name">skrolla</span>
+                </div>
+                <h3 class="tfios-card-headline" id="tfiosCardTitle">Terminal Diagnosis</h3>
+                <p class="tfios-card-body" id="tfiosCardBody">Hazel, a teenager with thyroid cancer that has spread to her lungs, has resigned herself to an early death. Her life is forever changed when she meets Augustus Waters, a charming and handsome teen who lost his leg to bone cancer. Despite their illnesses, they share a dark humor and a deep understanding of the meaning of life.</p>
               </div>
-              
-              <!-- Cards info -->
-              <div class="sm-cards-meta">
-                <div class="brand">● skrolla</div>
-                <div class="page-num" id="smCardsPageNum">1/5</div>
-              </div>
-              
-              <!-- Active Card Frame -->
-              <div class="sm-cards-active-card" id="smActiveCardBody">
-                <h3 class="card-title" id="smCardTitle">Arrakis Obsession</h3>
-                <p class="card-desc" id="smCardDesc">Paul Atreides travels to the harsh desert planet Arrakis, the universe's only source of the invaluable spice melange. As political tensions boil and threats from House Harkonnen loom, Paul begins to discover his own path, realizing that this planet holds a fate greater than he ever imagined.</p>
-              </div>
-              
-              <!-- Graphic / Book card detail visual -->
-              <div class="sm-cards-visual-container">
-                <div class="blur-bg-cover" style="background-image:url(covers/9780441013593.jpg)"></div>
-                <div class="cards-bottom-badge">
-                  <div class="badge-thumb" style="background-image:url(covers/9780441013593.jpg)"></div>
-                  <div class="badge-info">
-                    <div class="b-title">Dune</div>
-                    <div class="b-author">Frank Herbert</div>
+              <div class="tfios-book-visual">
+                <div class="tfios-book-cover-large" style="background-image:url(images/fault-in-our-stars.jpg)"></div>
+                <div class="tfios-book-badge">
+                  <div class="tfios-badge-thumb" style="background-image:url(images/fault-in-our-stars.jpg)"></div>
+                  <div>
+                    <div style="font-size:6.5px;color:#F1F3F8;font-weight:600">The Fault in Our Stars</div>
+                    <div style="font-size:5.5px;color:rgba(241,243,248,0.65)">John Green</div>
                   </div>
                 </div>
               </div>
-              
-              <!-- Interactive Touch overlays -->
-              <div class="sm-cards-nav-overlay left" id="smCardPrevBtn"></div>
-              <div class="sm-cards-nav-overlay right" id="smCardNextBtn"></div>
+              <div class="tfios-tap-prev" id="tfiosPrev"></div>
+              <div class="tfios-tap-next" id="tfiosNext"></div>
             </div>
           </div>
-          
         </div>
       </div>
-    </div>
+
+    </div><!-- /.three-phones -->
   </div>
 </section>
 
