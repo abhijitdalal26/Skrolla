@@ -298,3 +298,31 @@ setInterval(() => {
   tfiosIndex = (tfiosIndex + 1) % TFIOS_CARDS.length;
   setTfiosCard(tfiosIndex, 'next');
 }, 4000);
+
+// ============================================================
+// FAQ Accordion Interactivity
+// ============================================================
+document.querySelectorAll('.faq-item').forEach(item => {
+  const trigger = item.querySelector('.faq-trigger');
+  const content = item.querySelector('.faq-content');
+  
+  if (trigger && content) {
+    trigger.addEventListener('click', () => {
+      const isActive = item.classList.contains('active');
+      
+      // Close all items
+      document.querySelectorAll('.faq-item').forEach(i => {
+        i.classList.remove('active');
+        const c = i.querySelector('.faq-content');
+        if (c) c.style.maxHeight = null;
+      });
+      
+      // Open clicked item if it wasn't active
+      if (!isActive) {
+        item.classList.add('active');
+        content.style.maxHeight = content.scrollHeight + 'px';
+      }
+    });
+  }
+});
+
