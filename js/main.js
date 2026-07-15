@@ -183,3 +183,18 @@ if (smCardNextBtn) {
     }
   });
 }
+
+// ============================================================
+// Daily Discovery Carousel Slideshow (Auto-sliding page-by-page)
+// ============================================================
+const ddTrack = document.getElementById('dailyDiscoveryTrack');
+const ddCards = document.querySelectorAll('#dailyDiscoveryTrack .daily-discovery-card');
+let ddIndex = 0;
+if (ddTrack && ddCards.length > 0) {
+  setInterval(() => {
+    ddIndex = (ddIndex + 1) % ddCards.length;
+    // Each card is 210px wide with an 8px gap. Total step offset is 218px.
+    const stepOffset = 218;
+    ddTrack.style.transform = `translateX(-${ddIndex * stepOffset}px)`;
+  }, 4000);
+}
