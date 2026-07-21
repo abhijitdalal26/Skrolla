@@ -24,6 +24,9 @@ AI chat). Plain HTML/CSS/JS — no build step, no framework, no dependencies.
   `../Skrolla/android/App-icon/Final-v2/`), used for the nav mark and favicon/apple-touch-icon on
   all three pages. Same asset as the actual Android launcher icon — see
   `../Skrolla/android/Skrolla/CLAUDE.md` for that side.
+- `images/Final-covers/` — raw phone screenshots as provided, untouched. This is the source of
+  truth for what's on-screen; never edit these in place. `images/optimized/` is generated from
+  them (see below) and is what `index.html` actually references.
 
 ## Design source of truth
 
@@ -49,20 +52,35 @@ amber fill — white-on-amber measures ~2:1 contrast (fails WCAG AA for text), d
 Book covers are live Google Books thumbnail URLs by ISBN (same technique the design file uses):
 `https://books.google.com/books/content?vid=ISBN:{isbn}&printsec=frontcover&img=1&zoom=1&edge=curl`
 
-## Phone mockup screenshots (`images/*.png`, `*.jpeg`)
+## Phone mockup screenshots (`images/optimized/*.png`)
 
-A few showcase sections (StoryMode spotlight, Home/FYP/Search/Library) use real raster
-screenshots inside `.phone .screen img.app-screen-img` instead of live markup. These render at
-only ~230-292 CSS px wide, so:
+Every showcase section (hero, For You Feed, Onboarding x3, Home, Search, StoryMode x3, Library —
+11 screens total, one each, never reused across sections) uses a real raster screenshot inside
+`.phone .screen img.app-screen-img` instead of live markup. Source originals live in
+`images/Final-covers/`; `images/optimized/` is the generated, site-ready set that `index.html`
+actually points to.
 
-- **Export screenshots at ~2x their largest on-page display width** (500-600px), not raw device
-  resolution (Android screenshots come out of the phone at 1080x2400 — that's ~4x too big and
-  just makes the browser do more downscaling work, which shows up as blur). Resize down yourself
-  before adding the file, with Lanczos/bicubic resampling.
+**The `.phone` frame's aspect ratio is derived from the screenshots' own ratio, not the other way
+around.** `css/style.css`'s `.phone` rule sets `height: calc(var(--pw) * 2.061)` — 2.061 is the
+Final-covers set's own width:height ratio (~776:1600 average). Do not hardcode a `--ph` per
+instance again: if a future screenshot batch has a meaningfully different native ratio, recompute
+this multiplier (and regenerate `images/optimized/`'s crops to match it) instead of fighting it
+with `object-fit` tricks. This is why `object-fit: cover` on `.app-screen-img` never actually
+crops anything today — the frame already matches the source, so cover just fills exactly. Getting
+this ratio wrong is what previously clipped real UI (like/save/chat rail, bottom nav) that sits at
+the screenshot's true edge — screenshots are edge-to-edge by nature, they have no internal margin
+to sacrifice to a mismatched crop.
+
+When adding/regenerating a batch:
+- Crop (if at all) only to correct the aspect ratio, top-aligned (matches `object-position: top
+  center`) — never to trim content, since these screenshots have zero internal safe-margin.
+- Don't downscale below the source's native pixel size unless the source is unusually high-res
+  (e.g. a raw 1080×2400 Android capture) — these particular sources are already only ~776×1600, so
+  shrinking them further (previously down to 480-600px wide) reintroduced the exact non-integer-
+  DPR downscale blur described below by throwing away oversampling headroom. Keep as much native
+  resolution as the ratio-matched crop allows.
 - **PNG** for anything with UI text or flat colors (chat/card/app screens) — no compression
   artifacts. **JPEG** (quality ~85-90+) only for photographic content.
-- Crop close to the destination `.phone`'s aspect ratio (`--pw`/`--ph`) since `object-fit: cover`
-  will crop mismatches.
 - `.phone .screen img.app-screen-img` has `image-rendering: -webkit-optimize-contrast` +
   `backface-visibility: hidden` + `transform: translateZ(0)` (css/style.css) to force Chromium
   onto a sharper resampling/compositing path — this mitigates but doesn't replace exporting at the
