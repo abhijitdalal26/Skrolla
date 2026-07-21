@@ -60,6 +60,13 @@ Every showcase section (hero, For You Feed, Onboarding x3, Home, Search, StoryMo
 `images/Final-covers/`; `images/optimized/` is the generated, site-ready set that `index.html`
 actually points to.
 
+**Every `--pw` value (base rule, breakpoints, inline overrides) is kept a multiple of 20px.** At
+Windows' common 125%/150% display scaling, a non-multiple-of-20 width produces a fractional
+physical-pixel count (e.g. 215px * 1.25 = 268.75px), forcing Chromium into sub-pixel resampling on
+every frame — this is the text-blur-that-fixes-itself-on-zoom symptom (zoom shifts the effective
+ratio away from the fractional one). 20 is exact at both *1.25 and *1.5. Keep any new `--pw` value
+on this grid.
+
 **The `.phone` frame's aspect ratio is derived from the screenshots' own ratio, not the other way
 around.** `css/style.css`'s `.phone` rule sets `height: calc(var(--pw) * 2.061)` — 2.061 is the
 Final-covers set's own width:height ratio (~776:1600 average). Do not hardcode a `--ph` per
