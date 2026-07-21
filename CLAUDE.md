@@ -36,6 +36,26 @@ amber fill — white-on-amber measures ~2:1 contrast (fails WCAG AA for text), d
 Book covers are live Google Books thumbnail URLs by ISBN (same technique the design file uses):
 `https://books.google.com/books/content?vid=ISBN:{isbn}&printsec=frontcover&img=1&zoom=1&edge=curl`
 
+## Phone mockup screenshots (`images/*.png`, `*.jpeg`)
+
+A few showcase sections (StoryMode spotlight, Home/FYP/Search/Library) use real raster
+screenshots inside `.phone .screen img.app-screen-img` instead of live markup. These render at
+only ~230-292 CSS px wide, so:
+
+- **Export screenshots at ~2x their largest on-page display width** (500-600px), not raw device
+  resolution (Android screenshots come out of the phone at 1080x2400 — that's ~4x too big and
+  just makes the browser do more downscaling work, which shows up as blur). Resize down yourself
+  before adding the file, with Lanczos/bicubic resampling.
+- **PNG** for anything with UI text or flat colors (chat/card/app screens) — no compression
+  artifacts. **JPEG** (quality ~85-90+) only for photographic content.
+- Crop close to the destination `.phone`'s aspect ratio (`--pw`/`--ph`) since `object-fit: cover`
+  will crop mismatches.
+- `.phone .screen img.app-screen-img` has `image-rendering: -webkit-optimize-contrast` +
+  `backface-visibility: hidden` + `transform: translateZ(0)` (css/style.css) to force Chromium
+  onto a sharper resampling/compositing path — this mitigates but doesn't replace exporting at the
+  right size. The blur this works around is worse on Windows laptops at non-integer display
+  scaling (125%/150%) than on phones, since phones' high DPR hides it.
+
 ## Run locally
 
 No build step — just serve the directory statically, e.g. `python -m http.server 8000`, then
