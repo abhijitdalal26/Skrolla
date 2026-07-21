@@ -7,10 +7,23 @@ AI chat). Plain HTML/CSS/JS — no build step, no framework, no dependencies.
 
 - `index.html` — single page: nav, hero, pill marquee, feature showcases (For You Feed,
   Onboarding, Home, Search, StoryMode spotlight, Library), final CTA, footer.
-- `css/style.css` — design tokens + all styling.
+- `privacy.html` / `terms.html` — legal pages, styled to match the rest of the site (same nav/
+  footer, sticky scrollspy TOC sidebar, TL;DR callouts). Content ported as-is from the approved
+  Termly drafts at `../Skrolla/app-layout/store-launch/termly-policy.html` /
+  `termly-terms-condition.html` — update the content there first if the legal text itself needs
+  to change, then re-port. Cross-linked from both pages' and `index.html`'s footers.
+- `css/style.css` — design tokens + all styling, including a `.legal-*` block for the
+  privacy/terms article layout.
 - `js/main.js` — scroll-reveal (IntersectionObserver), nav scroll state, search-grid cover
   population, pill marquee loop, hero phone mouse-parallax, waitlist form (localStorage only,
-  no backend wired).
+  no backend wired). Only loaded on `index.html`.
+- `js/legal.js` — nav scroll state + TOC scrollspy for `privacy.html`/`terms.html`. Kept separate
+  from `main.js` so the legal pages don't run homepage-only code (waitlist form, pill marquee,
+  etc.) that has nothing to bind to there.
+- `images/logo/` — the real app icon (`skrolla-logo.svg`/`.png`, sourced from
+  `../Skrolla/android/App-icon/Final-v2/`), used for the nav mark and favicon/apple-touch-icon on
+  all three pages. Same asset as the actual Android launcher icon — see
+  `../Skrolla/android/Skrolla/CLAUDE.md` for that side.
 
 ## Design source of truth
 
