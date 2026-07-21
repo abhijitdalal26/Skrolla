@@ -537,10 +537,15 @@ section { position: relative; z-index: 1; }
 
 .reveal-scale {
   opacity: 0;
-  transform: translateY(30px) scale(0.94);
+  transform: translateY(30px);
   transition: opacity 1s var(--ease), transform 1s var(--ease);
 }
-.reveal-scale.in { opacity: 1; transform: translateY(0) scale(1); }
+/* No scale() here on purpose: animating transform: scale() on an element that contains a raster
+   screenshot promotes it to a GPU layer sized for the animation, and Chromium doesn't always
+   re-rasterize it crisply once the transition settles at scale(1) — leaving it permanently soft
+   until something forces a repaint (e.g. browser zoom, which is why zooming "fixes" it). Fade +
+   slide only, no scale, avoids the problem entirely. */
+.reveal-scale.in { opacity: 1; transform: translateY(0); }
 
 .reveal-delay-1 { transition-delay: 0.08s; }
 .reveal-delay-2 { transition-delay: 0.16s; }
