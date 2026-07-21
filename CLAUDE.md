@@ -79,6 +79,10 @@ When adding/regenerating a batch:
   shrinking them further (previously down to 480-600px wide) reintroduced the exact non-integer-
   DPR downscale blur described below by throwing away oversampling headroom. Keep as much native
   resolution as the ratio-matched crop allows.
+- Apply a mild unsharp mask (`PIL.ImageFilter.UnsharpMask(radius=1.2, percent=130, threshold=2)`
+  or equivalent) as the last step before saving. This pre-compensates for the softening the
+  browser's own downscale/compositing introduces at the small `.phone` display sizes — re-apply
+  it any time the optimized set is regenerated.
 - **PNG** for anything with UI text or flat colors (chat/card/app screens) — no compression
   artifacts. **JPEG** (quality ~85-90+) only for photographic content.
 - `.phone .screen img.app-screen-img` has `image-rendering: -webkit-optimize-contrast` +
