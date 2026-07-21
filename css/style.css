@@ -356,7 +356,12 @@ a { color: inherit; text-decoration: none; }
    ============================================================ */
 
 .phone {
-  --pw: 270px;
+  /* --pw is kept a multiple of 20 everywhere it's set (here and at every breakpoint/inline
+     override) so it lands on a whole physical-pixel count at both 125% and 150% Windows
+     display scaling (20*1.25=25, 20*1.5=30) — non-integer physical widths force Chromium into
+     sub-pixel resampling on every frame, which is what reads as text blur that "fixes itself"
+     when you zoom (zooming changes the effective ratio away from the fractional one). */
+  --pw: 280px;
   /* height derived from width at the source screenshots' own ~0.485 ratio (776:1600
      average across the Final-covers set) so the frame matches them exactly and
      object-fit: cover never has to crop anything. */
@@ -744,7 +749,7 @@ footer .fine { font-size: 12.5px; color: var(--text-muted); }
   .tag { justify-content: center; width: 100%; }
 
   .onboarding-stage { height: 560px; }
-  .onboarding-stage .phone { --pw: 185px; }
+  .onboarding-stage .phone { --pw: 180px; }
   .onboarding-stage .phone.p1 { transform: translateX(-72px) rotate(-9deg) scale(0.88); }
   .onboarding-stage .phone.p3 { transform: translateX(72px) rotate(9deg) scale(0.88); }
 
@@ -752,8 +757,8 @@ footer .fine { font-size: 12.5px; color: var(--text-muted); }
 }
 
 @media (max-width: 560px) {
-  .phone { --pw: 230px; }
-  .hero-stage .phone { --pw: 225px; }
+  .phone { --pw: 220px; }
+  .hero-stage .phone { --pw: 220px; }
   .showcase { padding: 90px 0; }
   .spotlight { padding: 100px 0; }
   .final-cta { padding: 110px 0 90px; }
@@ -1836,7 +1841,7 @@ footer .fine { font-size: 12.5px; color: var(--text-muted); }
     height: 480px;
   }
   .onboarding-stage .phone {
-    --pw: 155px;
+    --pw: 160px;
   }
   .onboarding-stage .phone.p1 {
     transform: translateX(-56px) rotate(-7deg) scale(0.86);
@@ -1862,9 +1867,9 @@ footer .fine { font-size: 12.5px; color: var(--text-muted); }
     font-size: 12.5px;
   }
   .phone {
-    --pw: 195px !important;
+    --pw: 200px !important;
   }
   .hero-stage .phone {
-    --pw: 195px !important;
+    --pw: 200px !important;
   }
 }
