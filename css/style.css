@@ -83,63 +83,32 @@ a { color: inherit; text-decoration: none; }
 }
 
 /* ============================================================
-   Nav
+   Hero brand mark
    ============================================================ */
 
-.nav {
-  position: fixed;
-  top: 0; left: 0; right: 0;
-  z-index: 100;
+.hero-brand {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  padding: 22px clamp(20px, 5vw, 64px);
-  transition: background var(--ease-soft), border-color var(--ease-soft), padding var(--ease-soft);
-  border-bottom: 1px solid transparent;
-}
-
-.nav.scrolled {
-  background: rgba(11, 14, 21, 0.72);
-  backdrop-filter: blur(16px) saturate(140%);
-  -webkit-backdrop-filter: blur(16px) saturate(140%);
-  border-bottom: 1px solid var(--separator);
-  padding-top: 14px;
-  padding-bottom: 14px;
-}
-
-.nav-logo {
-  display: flex;
-  align-items: center;
-  gap: 9px;
+  gap: 12px;
   font-weight: 800;
-  font-size: 18px;
+  font-size: 22px;
   letter-spacing: -0.4px;
+  margin-bottom: 28px;
 }
 
-.nav-logo .mark {
-  width: 26px; height: 26px;
-  border-radius: 8px;
+.hero-brand .mark {
+  width: 40px; height: 40px;
+  border-radius: 11px;
   overflow: hidden;
   display: flex; align-items: center; justify-content: center;
   box-shadow: 0 4px 14px var(--accent-glow);
   flex-shrink: 0;
 }
-.nav-logo .mark img {
+.hero-brand .mark img {
   width: 100%; height: 100%;
   object-fit: cover;
   display: block;
 }
-
-.nav-cta {
-  font-size: 13px;
-  font-weight: 600;
-  padding: 9px 18px;
-  border-radius: 100px;
-  background: var(--bg-elevated);
-  border: 1px solid var(--separator);
-  transition: all 0.25s var(--ease-soft);
-}
-.nav-cta:hover { border-color: var(--accent); background: var(--accent-glow-soft); }
 
 /* ============================================================
    Hero
@@ -150,7 +119,7 @@ a { color: inherit; text-decoration: none; }
   min-height: 100svh;
   display: flex;
   align-items: center;
-  padding-top: 110px;
+  padding-top: 56px;
   padding-bottom: 60px;
   z-index: 1;
 }
@@ -342,7 +311,6 @@ a { color: inherit; text-decoration: none; }
   opacity: 0;
   animation: chipIn 0.8s var(--ease) forwards;
 }
-.hero-chip.chip-1 { top: 12%; left: -6%; animation-delay: 1.1s; }
 .hero-chip.chip-2 { bottom: 16%; right: -8%; animation-delay: 1.3s; }
 .hero-chip .ic { font-size: 15px; }
 
@@ -553,6 +521,23 @@ section { position: relative; z-index: 1; }
 .reveal-delay-4 { transition-delay: 0.32s; }
 
 /* ============================================================
+   Connect-stage: sticky heading that stays put while its own
+   screenshot(s) scroll up into place directly beneath it, instead
+   of the heading scrolling off before the visual ever appears.
+   Used on Onboarding and StoryMode. Extra min-height gives room
+   for the visual to travel up while the heading holds its position.
+   ============================================================ */
+
+.connect-stage { min-height: 130vh; }
+.connect-heading {
+  position: sticky;
+  top: 90px;
+  z-index: 2;
+  padding-bottom: 40px;
+  background: linear-gradient(to bottom, var(--bg-primary) 65%, transparent);
+}
+
+/* ============================================================
    Onboarding trio section (fanned phones)
    ============================================================ */
 
@@ -716,23 +701,47 @@ section { position: relative; z-index: 1; }
 
 footer {
   border-top: 1px solid var(--separator);
-  padding: 44px 0;
+  padding: 40px 0;
   position: relative;
   z-index: 1;
 }
-.footer-row {
+.footer-grid {
   display: flex;
   align-items: center;
   justify-content: space-between;
   flex-wrap: wrap;
-  gap: 16px;
+  gap: 20px;
 }
-.footer-row .fmark {
-  display: flex; align-items: center; gap: 9px;
-  font-weight: 700; font-size: 14px; color: var(--text-secondary);
+.footer-brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
 }
-.footer-row .fmark .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--accent); }
-footer .fine { font-size: 12.5px; color: var(--text-muted); }
+.footer-brand .mark {
+  width: 34px; height: 34px;
+  border-radius: 10px;
+  overflow: hidden;
+  display: flex; align-items: center; justify-content: center;
+  box-shadow: 0 4px 14px var(--accent-glow);
+  flex-shrink: 0;
+}
+.footer-brand .mark img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.footer-name { font-weight: 800; font-size: 16px; letter-spacing: -0.3px; }
+.footer-tag { font-size: 12.5px; color: var(--text-muted); }
+.footer-links { display: flex; align-items: center; gap: 22px; }
+.footer-links a {
+  font-size: 13.5px;
+  color: var(--text-secondary);
+  text-decoration: none;
+  transition: color 0.2s var(--ease-soft);
+}
+.footer-links a:hover { color: var(--accent); }
+footer .fine { font-size: 12.5px; color: var(--text-muted); width: 100%; text-align: center; order: 3; }
+
+@media (max-width: 560px) {
+  .footer-grid { flex-direction: column; text-align: center; }
+  footer .fine { order: unset; }
+}
 
 /* ============================================================
    Responsive
@@ -1565,113 +1574,6 @@ footer .fine { font-size: 12.5px; color: var(--text-muted); }
   to { opacity: 1; }
 }
 
-/* FAQ section */
-.faq-section {
-  padding: 120px 0;
-  border-top: 1px solid var(--separator);
-}
-.faq-grid {
-  display: grid;
-  grid-template-columns: 0.9fr 1.1fr;
-  gap: 60px;
-}
-.faq-copy {
-  max-width: 420px;
-}
-.faq-copy h2 {
-  font-family: var(--font-serif);
-  font-size: clamp(28px, 3.2vw, 42px);
-  font-weight: 600;
-  line-height: 1.18;
-  margin-bottom: 16px;
-}
-.faq-copy p {
-  color: var(--text-secondary);
-  font-size: 15.5px;
-  line-height: 1.6;
-}
-.faq-accordion {
-  display: flex;
-  flex-direction: column;
-}
-.faq-item {
-  border-bottom: 1px solid var(--separator);
-  padding: 6px 0;
-}
-.faq-item:first-child {
-  border-top: 1px solid var(--separator);
-}
-.faq-trigger {
-  width: 100%;
-  background: none;
-  border: none;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 18px 4px;
-  color: var(--text-primary);
-  font-size: 15px;
-  font-weight: 700;
-  text-align: left;
-  cursor: pointer;
-  outline: none;
-}
-.faq-trigger:hover {
-  color: var(--accent);
-}
-.faq-trigger .icon {
-  width: 18px;
-  height: 18px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-  flex-shrink: 0;
-}
-.faq-trigger .icon::before,
-.faq-trigger .icon::after {
-  content: '';
-  position: absolute;
-  background: currentColor;
-  transition: transform 0.25s var(--ease);
-}
-.faq-trigger .icon::before {
-  width: 12px;
-  height: 2px;
-}
-.faq-trigger .icon::after {
-  width: 2px;
-  height: 12px;
-}
-.faq-item.active .faq-trigger {
-  color: var(--accent);
-}
-.faq-item.active .faq-trigger .icon::after {
-  transform: rotate(90deg) scaleY(0);
-}
-.faq-content {
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-}
-.faq-inner {
-  padding: 4px 4px 22px;
-  font-size: 13.5px;
-  line-height: 1.65;
-  color: var(--text-secondary);
-}
-
-@media (max-width: 980px) {
-  .faq-grid {
-    grid-template-columns: 1fr;
-    gap: 40px;
-  }
-  .faq-copy {
-    text-align: center;
-    max-width: 100%;
-  }
-}
-
 /* ============================================================
    Legal pages (Privacy Policy / Terms & Conditions)
    ============================================================ */
@@ -1839,9 +1741,6 @@ footer .fine { font-size: 12.5px; color: var(--text-muted); }
 
 /* Extra Mobile Optimizations */
 @media (max-width: 560px) {
-  .nav {
-    padding: 0 20px;
-  }
   .onboarding-stage {
     height: 480px;
   }
@@ -1861,15 +1760,11 @@ footer .fine { font-size: 12.5px; color: var(--text-muted); }
 }
 
 @media (max-width: 375px) {
-  .nav {
-    padding: 0 14px;
+  .hero-brand {
+    font-size: 18px;
   }
-  .nav-logo {
-    font-size: 15px;
-  }
-  .nav-cta {
-    padding: 8px 14px;
-    font-size: 12.5px;
+  .hero-brand .mark {
+    width: 32px; height: 32px;
   }
   .phone {
     --pw: 200px !important;

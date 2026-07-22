@@ -17,21 +17,14 @@
 <div class="grain"></div>
 <div class="ambient"></div>
 
-<!-- ============================================================ NAV -->
-<nav class="nav" id="nav">
-  <div class="nav-logo">
-    <span class="mark">
-      <img src="images/Logo-Final-v2/combined-bg-fg.svg" alt="Skrolla logo">
-    </span>
-    Skrolla
-  </div>
-  <a href="#waitlist" class="nav-cta">Get early access</a>
-</nav>
-
 <!-- ============================================================ HERO -->
 <header class="hero">
   <div class="wrap hero-grid">
     <div>
+      <div class="hero-brand">
+        <span class="mark"><img src="images/Logo-Final-v2/combined-bg-fg.svg" alt="Skrolla logo"></span>
+        Skrolla
+      </div>
       <div class="eyebrow"><span class="dot"></span> Coming soon on Android</div>
       <h1>Discover your next <span class="grad">obsession.</span></h1>
       <p class="lede">Book discovery, reimagined. Scroll covers the way you scroll Reels, then ask an AI anything before you commit.</p>
@@ -67,7 +60,6 @@
           </div>
         </div>
       </div>
-      <div class="hero-chip chip-1"><span class="ic">🔥</span> Trending: Dune</div>
       <div class="hero-chip chip-2"><span class="ic">💬</span> Ask StoryMode anything</div>
     </div>
   </div>
@@ -90,7 +82,6 @@
     <div class="showcase-copy reveal">
       <div class="tag"><span class="num">01</span> For You Feed</div>
       <h2>Scroll covers the way<br>you scroll Reels.</h2>
-      <p>Full-screen, one book per screen — no feeds to curate, just scroll. An exploration-first algorithm learns your taste while still surfacing books you'd never have found.</p>
       <ul class="feature-list">
         <li><span class="fico"><svg viewBox="0 0 24 24" fill="none" stroke="#F0A94A" stroke-width="3" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg></span><b>Cinematic by default</b> — every cover gets its own blurred, color-matched atmosphere.</li>
         <li><span class="fico"><svg viewBox="0 0 24 24" fill="none" stroke="#F0A94A" stroke-width="3" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg></span><b>Like, save, chat</b> — right there on the feed.</li>
@@ -109,11 +100,13 @@
 </section>
 
 <!-- ============================================================ ONBOARDING -->
-<section class="showcase">
+<section class="showcase connect-stage">
   <div class="wrap">
-    <div class="tag" style="justify-content:center;text-align:center" >Onboarding</div>
-    <h2 class="reveal" style="text-align:center;font-family:var(--font-serif);font-size:clamp(28px,3.4vw,42px);font-weight:600;letter-spacing:-0.01em;max-width:640px;margin:0 auto 20px">Seed your feed in three simple steps.</h2>
-    <p class="reveal" style="text-align:center;color:var(--text-secondary);font-size:15.5px;max-width:540px;margin:0 auto 60px;line-height:1.6">Pick your genres, name a few books you love, and we'll start matching your taste instantly.</p>
+    <div class="connect-heading">
+      <div class="tag" style="justify-content:center;text-align:center" >Onboarding</div>
+      <h2 class="reveal" style="text-align:center;font-family:var(--font-serif);font-size:clamp(28px,3.4vw,42px);font-weight:600;letter-spacing:-0.01em;max-width:640px;margin:0 auto 20px">Seed your feed in three simple steps.</h2>
+      <p class="reveal" style="text-align:center;color:var(--text-secondary);font-size:15.5px;max-width:540px;margin:0 auto;line-height:1.6">Pick your genres, name a few books you love, and we'll start matching your taste instantly.</p>
+    </div>
     <div class="onboarding-stage reveal">
       <div class="phone p1">
         <div class="notch"></div>
@@ -143,7 +136,6 @@
     <div class="showcase-copy reveal">
       <div class="tag"><span class="num">02</span> Home</div>
       <h2>Curated when you<br>have no history yet.</h2>
-      <p>Netflix-style rows — Continue Exploring, Trending, NYT Bestsellers — seeded instantly so day one never feels empty.</p>
       <ul class="feature-list">
         <li><span class="fico"><svg viewBox="0 0 24 24" fill="none" stroke="#F0A94A" stroke-width="3" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg></span>Tap any cover and it seeds your For You feed from that book.</li>
         <li><span class="fico"><svg viewBox="0 0 24 24" fill="none" stroke="#F0A94A" stroke-width="3" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg></span>“Continue Exploring” tracks what you dwelt on, Netflix-style.</li>
@@ -166,7 +158,6 @@
     <div class="showcase-copy reveal">
       <div class="tag"><span class="num">03</span> Search</div>
       <h2>A grid dedicated to<br>true discoverability.</h2>
-      <p>A visually stunning grid of our 70k+ catalog, no query required. Or search by vibe — "dark academia," "books like Dune" — and let the AI interpret it.</p>
       <ul class="feature-list">
         <li><span class="fico"><svg viewBox="0 0 24 24" fill="none" stroke="#F0A94A" stroke-width="3" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg></span>Author, title, and vibe search unified in one bar.</li>
         <li><span class="fico"><svg viewBox="0 0 24 24" fill="none" stroke="#F0A94A" stroke-width="3" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg></span>Keeps exploring as you scroll, balancing what you know with what's next.</li>
@@ -184,9 +175,9 @@
 </section>
 
 <!-- ============================================================ STORYMODE SPOTLIGHT -->
-<section class="spotlight" id="storymode">
+<section class="spotlight connect-stage" id="storymode">
   <div class="wrap">
-    <div class="spotlight-head reveal">
+    <div class="spotlight-head reveal connect-heading">
       <div class="tag" style="justify-content:center">✨ StoryMode</div>
       <h2>Ask the book anything<br>before you commit.</h2>
       <p>An AI that knows every book. Ask spoiler-free, go deep when ready, then generate a swipeable Book Cards deck.</p>
@@ -238,7 +229,6 @@
     <div class="showcase-copy reveal">
       <div class="tag"><span class="num">04</span> Library</div>
       <h2>Every list, every chat,<br>one accordion away.</h2>
-      <p>My Lists, Book Cards, Liked, Explored, Chat History — organized like Instagram collections, not one flat list.</p>
       <ul class="feature-list">
         <li><span class="fico"><svg viewBox="0 0 24 24" fill="none" stroke="#F0A94A" stroke-width="3" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg></span><b>Book Cards</b> gallery — every deck you've generated, re-readable anytime.</li>
         <li><span class="fico"><svg viewBox="0 0 24 24" fill="none" stroke="#F0A94A" stroke-width="3" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg></span><b>Chat History</b> jumps back into any book's conversation where you left it.</li>
@@ -250,83 +240,6 @@
         <div class="notch"></div>
         <div class="screen">
           <img class="app-screen-img" src="images/optimized/05-library-screen.png" alt="Library Screen">
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-    </div>
-  </div>
-</section>
-
-<!-- ============================================================ FAQ -->
-<section class="faq-section" id="faq">
-  <div class="wrap faq-grid">
-    <div class="faq-copy reveal">
-      <div class="tag" style="display:inline-flex">FAQ</div>
-      <h2>Have questions?<br>We have answers.</h2>
-      <p>Everything you need to know about the Skrolla app, its features, and the upcoming public launch.</p>
-    </div>
-    <div class="faq-accordion reveal">
-      <!-- FAQ Item 1 -->
-      <div class="faq-item">
-        <button class="faq-trigger">
-          <span>What is Skrolla?</span>
-          <span class="icon"></span>
-        </button>
-        <div class="faq-content">
-          <div class="faq-inner">
-            A book discovery app for the mobile-first generation — a cover-centric vertical feed like Reels or TikTok, with AI-generated insights instead of text search forms.
-          </div>
-        </div>
-      </div>
-      <!-- FAQ Item 2 -->
-      <div class="faq-item">
-        <button class="faq-trigger">
-          <span>When will Skrolla launch on Android?</span>
-          <span class="icon"></span>
-        </button>
-        <div class="faq-content">
-          <div class="faq-inner">
-            We're in closed beta now, targeting early Q3 2026 on the Google Play Store. Join the waitlist for an early invite code.
-          </div>
-        </div>
-      </div>
-      <!-- FAQ Item 3 -->
-      <div class="faq-item">
-        <button class="faq-trigger">
-          <span>Is there an iOS version coming?</span>
-          <span class="icon"></span>
-        </button>
-        <div class="faq-content">
-          <div class="faq-inner">
-            Yes — it's in development alongside Android, with a public beta planned shortly after launch.
-          </div>
-        </div>
-      </div>
-      <!-- FAQ Item 4 -->
-      <div class="faq-item">
-        <button class="faq-trigger">
-          <span>How does the AI chat (StoryMode) work without spoilers?</span>
-          <span class="icon"></span>
-        </button>
-        <div class="faq-content">
-          <div class="faq-inner">
-            By default, StoryMode sticks to vibes, comparable titles, and writing style. Toggle "Full Story" mode to unlock plot twists, endings, and character details.
-          </div>
-        </div>
-      </div>
-      <!-- FAQ Item 5 -->
-      <div class="faq-item">
-        <button class="faq-trigger">
-          <span>Is Skrolla free to use?</span>
-          <span class="icon"></span>
-        </button>
-        <div class="faq-content">
-          <div class="faq-inner">
-            Yes — cover scrolling, search, and lists are fully free. StoryMode chat and Book Cards have a generous free daily limit, with an optional subscription for heavy readers.
-          </div>
         </div>
       </div>
     </div>
@@ -345,11 +258,25 @@
       </form>
       <div class="form-note" id="formNote">No spam. One email, when we launch.</div>
       <div class="form-success" id="formSuccess">You're on the list. See you soon! ✨</div>
+    </div>
+  </div>
+</section>
 
+<!-- ============================================================ FOOTER -->
 <footer>
-  <div class="wrap footer-row">
-    <div class="fmark"><span class="dot"></span> Skrolla — Discover your next obsession</div>
-    <div class="fine">© 2026 Skrolla. Built for readers who scroll. · <a class="legal-link" href="privacy.html">Privacy Policy</a> · <a class="legal-link" href="terms.html">Terms &amp; Conditions</a></div>
+  <div class="wrap footer-grid">
+    <div class="footer-brand">
+      <span class="mark"><img src="images/Logo-Final-v2/combined-bg-fg.svg" alt="Skrolla logo"></span>
+      <div>
+        <div class="footer-name">Skrolla</div>
+        <div class="footer-tag">Discover your next obsession</div>
+      </div>
+    </div>
+    <nav class="footer-links">
+      <a href="privacy.html">Privacy Policy</a>
+      <a href="terms.html">Terms &amp; Conditions</a>
+    </nav>
+    <div class="fine">© 2026 Skrolla. Built for readers who scroll.</div>
   </div>
 </footer>
 
