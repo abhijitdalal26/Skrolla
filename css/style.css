@@ -83,32 +83,54 @@ a { color: inherit; text-decoration: none; }
 }
 
 /* ============================================================
-   Hero brand mark
+   Nav
    ============================================================ */
 
-.hero-brand {
+.nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
   display: flex;
   align-items: center;
-  gap: 12px;
-  font-weight: 800;
-  font-size: 22px;
-  letter-spacing: -0.4px;
-  margin-bottom: 28px;
+  justify-content: space-between;
+  padding: 20px clamp(20px, 5vw, 64px);
 }
 
-.hero-brand .mark {
-  width: 40px; height: 40px;
-  border-radius: 11px;
+.nav-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 800;
+  font-size: 17px;
+  letter-spacing: -0.3px;
+}
+
+.nav-logo .mark {
+  /* 30px is the conventional nav-logo size most sites settle on — big enough to read as
+     a real mark, small enough to stay a supporting element rather than competing with content. */
+  width: 30px; height: 30px;
+  border-radius: 9px;
   overflow: hidden;
   display: flex; align-items: center; justify-content: center;
   box-shadow: 0 4px 14px var(--accent-glow);
   flex-shrink: 0;
 }
-.hero-brand .mark img {
+.nav-logo .mark img {
   width: 100%; height: 100%;
   object-fit: cover;
   display: block;
 }
+
+.nav-cta {
+  font-size: 13px;
+  font-weight: 600;
+  padding: 9px 18px;
+  border-radius: 100px;
+  background: var(--bg-elevated);
+  border: 1px solid var(--separator);
+  transition: all 0.25s var(--ease-soft);
+}
+.nav-cta:hover { border-color: var(--accent); background: var(--accent-glow-soft); }
 
 /* ============================================================
    Hero
@@ -119,7 +141,7 @@ a { color: inherit; text-decoration: none; }
   min-height: 100svh;
   display: flex;
   align-items: center;
-  padding-top: 56px;
+  padding-top: 110px;
   padding-bottom: 60px;
   z-index: 1;
 }
@@ -442,10 +464,10 @@ section { position: relative; z-index: 1; }
 .tag {
   display: inline-flex;
   align-items: center;
-  gap: 7px;
-  font-size: 11.5px;
+  gap: 8px;
+  font-size: 14px;
   font-weight: 700;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.06em;
   text-transform: uppercase;
   color: var(--accent);
   margin-bottom: 18px;
@@ -469,24 +491,28 @@ section { position: relative; z-index: 1; }
   margin-bottom: 24px;
 }
 
-.feature-list { display: flex; flex-direction: column; gap: 12px; }
+.feature-list { display: flex; flex-direction: column; }
 .feature-list li {
   display: flex;
   align-items: flex-start;
-  gap: 12px;
+  gap: 16px;
   font-size: 14.5px;
   color: var(--text-secondary);
-  line-height: 1.5;
+  line-height: 1.55;
+  padding: 16px 0;
+  border-top: 1px solid var(--separator);
 }
-.feature-list .fico {
-  width: 20px; height: 20px;
-  border-radius: 6px;
-  background: var(--accent-glow-soft);
-  border: 1px solid rgba(240,169,74,0.3);
-  display: flex; align-items: center; justify-content: center;
-  flex-shrink: 0; margin-top: 1px;
+.feature-list li:first-child { border-top: none; padding-top: 0; }
+.feature-list li:last-child { padding-bottom: 0; }
+.feature-list .fnum {
+  font-family: var(--font-serif);
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--accent);
+  flex-shrink: 0;
+  min-width: 22px;
+  padding-top: 1px;
 }
-.feature-list .fico svg { width: 11px; height: 11px; }
 .feature-list b { color: var(--text-primary); font-weight: 600; }
 
 .showcase-visual {
@@ -521,20 +547,44 @@ section { position: relative; z-index: 1; }
 .reveal-delay-4 { transition-delay: 0.32s; }
 
 /* ============================================================
-   Connect-stage: sticky heading that stays put while its own
-   screenshot(s) scroll up into place directly beneath it, instead
-   of the heading scrolling off before the visual ever appears.
-   Used on Onboarding and StoryMode. Extra min-height gives room
-   for the visual to travel up while the heading holds its position.
+   Connect-stage: the heading crossfades into its own screenshot(s)
+   at the same on-screen spot as you scroll, instead of the heading
+   scrolling away before the visual ever appears on a "separate page".
+   Used on Onboarding and StoryMode. main.js drives --p (0 -> 1) on
+   .connect-stage via scroll position; heading fades/lifts out while
+   the visual fades/settles in, both pinned to the same centered spot.
    ============================================================ */
 
-.connect-stage { min-height: 130vh; }
-.connect-heading {
+.connect-stage {
+  position: relative;
+  border-top: 1px solid var(--separator);
+  --p: 0;
+}
+.connect-stage .wrap { position: relative; min-height: 260vh; }
+.connect-pin {
   position: sticky;
-  top: 90px;
-  z-index: 2;
-  padding-bottom: 40px;
-  background: linear-gradient(to bottom, var(--bg-primary) 65%, transparent);
+  top: 0;
+  height: 100vh;
+  overflow: hidden;
+}
+.connect-heading, .connect-visual {
+  position: absolute;
+  top: 50%; left: 0; right: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.connect-heading {
+  opacity: calc(1 - var(--p));
+  transform: translate(0, calc(-50% - var(--p) * 26px)) scale(calc(1 - var(--p) * 0.04));
+}
+.connect-visual {
+  opacity: var(--p);
+  transform: translate(0, calc(-50% + (1 - var(--p)) * 26px)) scale(calc(0.96 + var(--p) * 0.04));
+}
+
+@media (max-width: 720px) {
+  .connect-stage .wrap { min-height: 220vh; }
 }
 
 /* ============================================================
@@ -547,6 +597,7 @@ section { position: relative; z-index: 1; }
   justify-content: center;
   gap: -40px;
   position: relative;
+  width: 100%;
   height: 660px;
 }
 .onboarding-stage .phone { --pw: 220px; position: absolute; }
@@ -1741,6 +1792,9 @@ footer .fine { font-size: 12.5px; color: var(--text-muted); width: 100%; text-al
 
 /* Extra Mobile Optimizations */
 @media (max-width: 560px) {
+  .nav {
+    padding: 0 20px;
+  }
   .onboarding-stage {
     height: 480px;
   }
@@ -1760,11 +1814,15 @@ footer .fine { font-size: 12.5px; color: var(--text-muted); width: 100%; text-al
 }
 
 @media (max-width: 375px) {
-  .hero-brand {
-    font-size: 18px;
+  .nav {
+    padding: 0 14px;
   }
-  .hero-brand .mark {
-    width: 32px; height: 32px;
+  .nav-logo {
+    font-size: 15px;
+  }
+  .nav-cta {
+    padding: 8px 14px;
+    font-size: 12.5px;
   }
   .phone {
     --pw: 200px !important;

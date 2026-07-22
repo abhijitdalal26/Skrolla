@@ -14,6 +14,39 @@ const io = new IntersectionObserver((entries) => {
 revealEls.forEach((el) => io.observe(el));
 
 // ============================================================
+// Connect-stage — heading crossfades into its screenshot(s) at the
+// same spot as you scroll (Onboarding, StoryMode). --p runs 0 -> 1
+// across the middle slice of the section's scroll range, holding at
+// each end so both the heading and the visual get resting time.
+// ============================================================
+const connectStages = document.querySelectorAll('.connect-stage');
+const clamp01 = (n) => Math.min(Math.max(n, 0), 1);
+const smoothstep = (t) => t * t * (3 - 2 * t);
+
+function updateConnectStages() {
+  connectStages.forEach((stage) => {
+    const rect = stage.getBoundingClientRect();
+    const scrollRange = rect.height - window.innerHeight;
+    if (scrollRange <= 0) return;
+    const raw = clamp01(-rect.top / scrollRange);
+    const p = smoothstep(clamp01((raw - 0.3) / 0.4)); // hold 0-30%, cross 30-70%, hold 70-100%
+    stage.style.setProperty('--p', p);
+  });
+}
+
+if (connectStages.length) {
+  let ticking = false;
+  const onConnectScroll = () => {
+    if (ticking) return;
+    ticking = true;
+    requestAnimationFrame(() => { updateConnectStages(); ticking = false; });
+  };
+  updateConnectStages();
+  window.addEventListener('scroll', onConnectScroll, { passive: true });
+  window.addEventListener('resize', updateConnectStages);
+}
+
+// ============================================================
 // Search grid — real covers, populated once
 // ============================================================
 const ISBNS = [
