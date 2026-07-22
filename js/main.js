@@ -14,43 +14,6 @@ const io = new IntersectionObserver((entries) => {
 revealEls.forEach((el) => io.observe(el));
 
 // ============================================================
-// Connect-heading word-spread — splits each h2 into per-word spans
-// so the headline can fragment outward from its own center (and
-// blur away) as --p advances, instead of moving as one flat block.
-// ============================================================
-document.querySelectorAll('.connect-heading h2').forEach((h2) => {
-  const textNodes = [];
-  const walker = document.createTreeWalker(h2, NodeFilter.SHOW_TEXT);
-  let node;
-  while ((node = walker.nextNode())) textNodes.push(node);
-
-  const words = [];
-  textNodes.forEach((textNode) => {
-    const frag = document.createDocumentFragment();
-    textNode.textContent.split(/(\s+)/).forEach((part) => {
-      if (part === '') return;
-      if (/^\s+$/.test(part)) {
-        frag.appendChild(document.createTextNode(part));
-        return;
-      }
-      const span = document.createElement('span');
-      span.className = 'word';
-      span.textContent = part;
-      words.push(span);
-      frag.appendChild(span);
-    });
-    textNode.parentNode.replaceChild(frag, textNode);
-  });
-
-  const center = (words.length - 1) / 2;
-  words.forEach((span, i) => {
-    const wi = i - center;
-    span.style.setProperty('--wi', wi.toFixed(2));
-    span.style.setProperty('--wa', Math.abs(wi).toFixed(2));
-  });
-});
-
-// ============================================================
 // Connect-stage — heading crossfades into its screenshot(s) at the
 // same spot as you scroll (Onboarding, StoryMode). --p runs 0 -> 1
 // across the middle slice of the section's scroll range, holding at
