@@ -807,10 +807,19 @@ footer {
 }
 .footer-links a:hover { color: var(--accent); }
 footer .fine { font-size: 12.5px; color: var(--text-muted); width: 100%; text-align: center; order: 3; }
+.social-links { display: flex; align-items: center; gap: 16px; }
+.social-links a {
+  color: var(--text-secondary);
+  display: flex;
+  transition: color 0.2s var(--ease-soft), transform 0.2s var(--ease-soft);
+}
+.social-links a:hover { color: var(--accent); transform: translateY(-2px); }
+.social-links svg { width: 18px; height: 18px; fill: currentColor; display: block; }
 
 @media (max-width: 560px) {
   .footer-grid { flex-direction: column; text-align: center; }
   footer .fine { order: unset; }
+  .social-links { justify-content: center; }
 }
 
 /* ============================================================
