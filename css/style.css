@@ -574,17 +574,32 @@ section { position: relative; z-index: 1; }
   flex-direction: column;
   align-items: center;
 }
-/* Heading exits stage-left, visual enters from stage-right — opposite
-   directions across the section's full width (not just the same center
-   point), so the swap reads as one thing leaving and another arriving
-   rather than everything converging/diverging in place. */
 .connect-heading {
   opacity: calc(1 - var(--p));
-  transform: translate(calc(var(--p) * -22vw), -50%);
+  transform: translate(0, -50%);
 }
 .connect-visual {
   opacity: var(--p);
-  transform: translate(calc((1 - var(--p)) * 22vw), -50%);
+  filter: blur(calc((1 - var(--p)) * 18px));
+  transform: translate(0, -50%) scale(calc(0.15 + var(--p) * 0.85));
+}
+
+/* Headline blasts apart from its own center as --p advances — each word
+   flies out on its own diagonal (mixing its left/right position with a
+   sine-based vertical scatter so it's not a flat left-right line) while
+   spinning and blurring away. The visual above grows out of that same
+   center point, like it's what the blast revealed. */
+.connect-heading h2 .word {
+  --wi: 0;
+  --wa: 0;
+  --vy: 0;
+  display: inline-block;
+  transform:
+    translate(calc(var(--wi) * var(--p) * (60px + var(--wa) * 20px)), calc(var(--p) * var(--vy) * 70px))
+    rotate(calc(var(--wi) * var(--p) * 16deg))
+    scale(calc(1 - var(--p) * 0.4));
+  filter: blur(calc(var(--p) * (2px + var(--wa) * 5px)));
+  will-change: transform, filter;
 }
 
 @media (max-width: 720px) {
@@ -1843,6 +1858,10 @@ footer .fine { font-size: 12.5px; color: var(--text-muted); width: 100%; text-al
    final, fully-revealed state either way — nothing stays hidden.
    ============================================================ */
 @media (prefers-reduced-motion: reduce) {
+  .connect-heading h2 .word {
+    transform: none;
+    filter: none;
+  }
   .connect-heading, .connect-visual {
     transform: none;
     filter: none;
