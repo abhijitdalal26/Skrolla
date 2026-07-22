@@ -583,6 +583,21 @@ section { position: relative; z-index: 1; }
   transform: translate(0, calc(-50% + (1 - var(--p)) * 26px)) scale(calc(0.96 + var(--p) * 0.04));
 }
 
+/* Headline fragments outward from its own center and dissolves as --p
+   advances — layered on top of the block-level fade/lift above. Words
+   further from center (--wa) travel further and blur more, so the
+   whole line reads as "spreading apart" rather than sliding as one unit. */
+.connect-heading h2 .word {
+  --wi: 0;
+  --wa: 0;
+  display: inline-block;
+  transform:
+    translate(calc(var(--wi) * var(--p) * 30px), calc(var(--p) * var(--wa) * -9px))
+    scale(calc(1 - var(--p) * 0.14));
+  filter: blur(calc(var(--p) * (1.5px + var(--wa) * 2.75px)));
+  will-change: transform, filter;
+}
+
 @media (max-width: 720px) {
   .connect-stage .wrap { min-height: 220vh; }
 }
@@ -1829,5 +1844,40 @@ footer .fine { font-size: 12.5px; color: var(--text-muted); width: 100%; text-al
   }
   .hero-stage .phone {
     --pw: 200px !important;
+  }
+}
+
+/* ============================================================
+   Reduced motion — every scroll/hover-driven transform+blur on the
+   site collapses to a plain opacity fade (or nothing) for users who
+   have asked the OS not to animate. Content still ends up in its
+   final, fully-revealed state either way — nothing stays hidden.
+   ============================================================ */
+@media (prefers-reduced-motion: reduce) {
+  .connect-heading h2 .word {
+    transform: none;
+    filter: none;
+  }
+  .connect-heading, .connect-visual {
+    transform: none;
+    transition: opacity 0.3s linear;
+  }
+  .reveal, .reveal-scale {
+    transform: none !important;
+    transition: opacity 0.3s linear;
+  }
+  .onboarding-stage .phone.p1,
+  .onboarding-stage .phone.p2,
+  .onboarding-stage .phone.p3 {
+    transition: filter 0.3s linear;
+  }
+  .tfios-card-headline.exit,
+  .tfios-card-body.exit,
+  .tfios-card-headline.enter,
+  .tfios-card-body.enter {
+    transform: none;
+  }
+  .hero-phone-wrap {
+    transition: none !important;
   }
 }
