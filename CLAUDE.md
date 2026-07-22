@@ -27,6 +27,11 @@ AI chat). Plain HTML/CSS/JS — no build step, no framework, no dependencies.
 - `images/Final-covers/` — raw phone screenshots as provided, untouched. This is the source of
   truth for what's on-screen; never edit these in place. `images/optimized/` is generated from
   them (see below) and is what `index.html` actually references.
+- `docs/skrolla-essay.md` — the founder's essay on what Skrolla is and why (exploration over
+  attention, spoiler-free-by-default chat, the "spark before the story" framing). Not linked from
+  the site anywhere — it's a copy-tone reference only. Check new/edited site copy against it
+  before writing: prefer the reader-facing "why" over describing UI mechanics (e.g. don't
+  describe *how* a screen looks/works, describe what the person scrolling gets out of it).
 
 ## Design source of truth
 
