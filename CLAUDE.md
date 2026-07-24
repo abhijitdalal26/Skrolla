@@ -103,6 +103,19 @@ When adding/regenerating a batch:
   right size. The blur this works around is worse on Windows laptops at non-integer display
   scaling (125%/150%) than on phones, since phones' high DPR hides it.
 
+## Git branches
+
+`main` is the only branch to work from and the only one Vercel deploys — always confirm you're
+on `main` (`git branch --show-current`) before committing, and push straight to `origin/main`.
+Don't create a second long-lived branch for redesigns/experiments in this same working directory:
+a branch alone doesn't isolate anything here unless something actually `git checkout`s onto it or
+opens a separate `git worktree` — otherwise commits silently land on whatever's currently checked
+out. On 2026-07-24 a redesign experiment landed on `main` this way (bundled into an unrelated
+commit's message), got deployed, and had to be reset back out (see `experiment-backup` branch,
+which holds that abandoned redesign in case it's ever wanted again — not merged into `main`, not
+under active development). If a redesign is wanted again, do it in a separate `git worktree`
+folder, not a branch switch in this same directory.
+
 ## Run locally
 
 No build step — just serve the directory statically, e.g. `python -m http.server 8000`, then
