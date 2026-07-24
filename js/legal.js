@@ -1,8 +1,8 @@
 // ============================================================
-// Nav — solid on scroll (same behavior as index.html)
+// Nav — visible only at the top of the page (same behavior as index.html)
 // ============================================================
 const nav = document.getElementById('nav');
-const onScroll = () => nav.classList.toggle('scrolled', window.scrollY > 24);
+const onScroll = () => nav.classList.toggle('nav-hidden', window.scrollY > 80);
 onScroll();
 window.addEventListener('scroll', onScroll, { passive: true });
 

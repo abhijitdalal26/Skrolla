@@ -1,4 +1,15 @@
 // ============================================================
+// Nav — visible only on the hero/top screen, hidden once scrolled
+// into the rest of the page so it doesn't sit over section content.
+// ============================================================
+const nav = document.querySelector('.nav');
+if (nav) {
+  const setNavVisibility = () => nav.classList.toggle('nav-hidden', window.scrollY > 80);
+  setNavVisibility();
+  window.addEventListener('scroll', setNavVisibility, { passive: true });
+}
+
+// ============================================================
 // Scroll reveal — IntersectionObserver
 // ============================================================
 const revealEls = document.querySelectorAll('.reveal, .reveal-scale, .onboarding-stage');

@@ -94,6 +94,12 @@ a { color: inherit; text-decoration: none; }
   align-items: center;
   justify-content: space-between;
   padding: 20px clamp(20px, 5vw, 64px);
+  transition: transform 0.35s var(--ease-soft), opacity 0.3s var(--ease-soft);
+}
+.nav.nav-hidden {
+  transform: translateY(-100%);
+  opacity: 0;
+  pointer-events: none;
 }
 
 .nav-logo {
