@@ -131,6 +131,26 @@ either step (Google doesn't offer silent group-add or auto opt-in). The two link
   `https://play.google.com/apps/testing/com.skrolla.app`
 Currently running a 12-tester/14-day closed test (Play's minimum before promoting to production).
 
+## Mobile behavior notes
+
+- Nav (`.nav`) is visible only at the very top of the page — `js/main.js` (and `js/legal.js` on
+  the legal pages) toggle a `.nav-hidden` class once `scrollY > 80`, sliding it out via
+  `transform: translateY(-100%)`. This is deliberate: it was previously always-fixed-visible,
+  which on mobile meant it sat on top of scrolling section content with nothing but a transparent
+  background behind it.
+- The StoryMode 3-phone showcase (`.connect-stage#storymode`) uses a scroll-jacked
+  pin-and-crossfade effect on desktop (`.connect-pin` sticky within a `min-height:260vh` wrapper,
+  driven by `--p` in `js/main.js`'s `updateConnectStages()`) — this only works with a wide
+  side-by-side 3-phone row. Below 860px that whole mechanism is disabled (see the
+  `@media (max-width: 860px)` block after `.tfios-tap-next` in `css/style.css`, and the
+  `connectStageMq` guard in `updateConnectStages()`): the pin becomes a normal static block and
+  the 3 phones become a swipeable horizontal scroll-snap carousel instead of a vertical stack —
+  a sticky `height:100vh; overflow:hidden` pin has nowhere near enough room for 3 stacked phones.
+- If any new mobile breakpoint touches `.nav`, check both `@media (max-width: 560px)` blocks in
+  `css/style.css` (there are two — one under "Responsive", one under "Extra Mobile
+  Optimizations" further down) — a stray `padding: 0 20px` in the second one previously zeroed
+  the nav's vertical padding, leaving the logo/CTA flush against the top of the viewport.
+
 ## Not yet wired
 
 - Deployed via Vercel (`.vercel/project.json` → project `skrolla`, org `team_4aLAbYk0qPZR0U0bw1R3Eoun`);

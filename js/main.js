@@ -73,7 +73,10 @@ const connectStages = document.querySelectorAll('.connect-stage');
 const clamp01 = (n) => Math.min(Math.max(n, 0), 1);
 const smoothstep = (t) => t * t * (3 - 2 * t);
 
+const connectStageMq = window.matchMedia('(max-width: 860px)');
+
 function updateConnectStages() {
+  if (connectStageMq.matches) return; // pin/crossfade is a laptop-only effect — see CSS
   connectStages.forEach((stage) => {
     const rect = stage.getBoundingClientRect();
     const scrollRange = rect.height - window.innerHeight;

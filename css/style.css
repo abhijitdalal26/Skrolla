@@ -862,6 +862,10 @@ footer .fine { font-size: 12.5px; color: var(--text-muted); width: 100%; text-al
   .showcase { padding: 90px 0; }
   .spotlight { padding: 100px 0; }
   .final-cta { padding: 110px 0 90px; }
+
+  /* Narrower than the container so it reads as a centered block (matching
+     the centered heading above it) instead of text flush with both edges. */
+  .feature-list { max-width: 300px; }
 }
 
 /* ============================================================
@@ -1349,6 +1353,17 @@ footer .fine { font-size: 12.5px; color: var(--text-muted); width: 100%; text-al
   color: var(--accent);
 }
 
+.swipe-hint {
+  display: none;
+  text-align: center;
+  font-size: 12.5px;
+  color: var(--text-muted);
+  margin-top: -20px;
+}
+@media (max-width: 860px) {
+  .swipe-hint { display: block; }
+}
+
 /* Featured (center) phone gets a subtle glow halo */
 .featured-phone .screen {
   box-shadow: 0 0 40px rgba(240,169,74,0.15), 0 0 80px rgba(240,169,74,0.07) !important;
@@ -1612,16 +1627,48 @@ footer .fine { font-size: 12.5px; color: var(--text-muted); width: 100%; text-al
 .tfios-tap-prev { left: 0; width: 40%; }
 .tfios-tap-next { right: 0; width: 60%; }
 
-/* Responsive: stack on narrow screens */
+/* Responsive: the laptop version pins the heading and scroll-crossfades it
+   into the 3-phone visual (see .connect-stage above) — that scroll-jacked
+   pin doesn't translate to mobile (a 100vh-capped, overflow:hidden pin has
+   nowhere near enough height for 3 stacked phones, and the effect itself
+   reads as janky on a touch scroll). Below 860px we drop the pin entirely,
+   let the heading and visual sit in normal flow, and turn the 3 phones into
+   a swipeable horizontal carousel instead of a tall vertical stack. */
 @media (max-width: 860px) {
+  .connect-stage .wrap { min-height: auto; }
+  .connect-pin {
+    position: static;
+    height: auto;
+    overflow: visible;
+    padding: 70px 0;
+  }
+  .connect-heading, .connect-visual {
+    position: static;
+    opacity: 1 !important;
+    transform: none !important;
+    filter: none !important;
+  }
+
   .three-phones {
-    flex-direction: column;
-    align-items: center;
-    gap: 36px;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: flex-start;
+    align-self: stretch;
+    width: 100%;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    gap: 24px;
+    margin: 40px -20px 0;
+    padding: 4px 20px 44px;
+    scroll-padding: 0 20px;
   }
-  .triple-phone-wrap.center-phone {
-    order: -1;
+  .triple-phone-wrap {
+    flex: 0 0 auto;
+    scroll-snap-align: center;
   }
+  .triple-phone-wrap.center-phone { order: unset; }
 }
 
 /* Scroll Indicator */
@@ -1828,7 +1875,11 @@ footer .fine { font-size: 12.5px; color: var(--text-muted); width: 100%; text-al
 /* Extra Mobile Optimizations */
 @media (max-width: 560px) {
   .nav {
-    padding: 0 20px;
+    /* Vertical padding was previously 0 here, which left the logo/CTA
+       flush against the top of the viewport (touching the browser's own
+       address bar on a phone) — restore it, plus the device's safe-area
+       inset for notched screens. */
+    padding: max(16px, env(safe-area-inset-top, 16px) + 6px) 20px 16px;
   }
   .onboarding-stage {
     height: 480px;
@@ -1850,7 +1901,7 @@ footer .fine { font-size: 12.5px; color: var(--text-muted); width: 100%; text-al
 
 @media (max-width: 375px) {
   .nav {
-    padding: 0 14px;
+    padding: max(14px, env(safe-area-inset-top, 14px) + 6px) 14px 14px;
   }
   .nav-logo {
     font-size: 15px;
