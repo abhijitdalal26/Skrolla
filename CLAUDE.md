@@ -15,11 +15,10 @@ AI chat). Plain HTML/CSS/JS — no build step, no framework, no dependencies.
 - `css/style.css` — design tokens + all styling, including a `.legal-*` block for the
   privacy/terms article layout.
 - `js/main.js` — scroll-reveal (IntersectionObserver), nav scroll state, search-grid cover
-  population, pill marquee loop, hero phone mouse-parallax, waitlist form (localStorage only,
-  no backend wired). Only loaded on `index.html`.
+  population, pill marquee loop, hero phone mouse-parallax. Only loaded on `index.html`.
 - `js/legal.js` — nav scroll state + TOC scrollspy for `privacy.html`/`terms.html`. Kept separate
-  from `main.js` so the legal pages don't run homepage-only code (waitlist form, pill marquee,
-  etc.) that has nothing to bind to there.
+  from `main.js` so the legal pages don't run homepage-only code (pill marquee, etc.) that has
+  nothing to bind to there.
 - `images/logo/` — the real app icon (`skrolla-logo.svg`/`.png`, sourced from
   `../Skrolla/android/App-icon/Final-v2/`), used for the nav mark and favicon/apple-touch-icon on
   all three pages. Same asset as the actual Android launcher icon — see
@@ -121,10 +120,19 @@ folder, not a branch switch in this same directory.
 No build step — just serve the directory statically, e.g. `python -m http.server 8000`, then
 open `index.html`.
 
+## Closed testing signup (`#join-beta` section, was `#waitlist`)
+
+No email capture — replaced with two direct links, since Google Play closed testing requires
+each tester to (1) join the tester Google Group and (2) opt in via a Play Console-issued link
+before the app becomes installable for their account; there's no legitimate way to automate
+either step (Google doesn't offer silent group-add or auto opt-in). The two links:
+- Tester group: `https://groups.google.com/g/skrolla-testers`
+- Play Console opt-in (not the public store listing URL — that won't let non-testers install):
+  `https://play.google.com/apps/testing/com.skrolla.app`
+Currently running a 12-tester/14-day closed test (Play's minimum before promoting to production).
+
 ## Not yet wired
 
-- Waitlist form only writes to `localStorage` (`skrolla_waitlist` key) — no backend/email
-  service connected yet.
 - Deployed via Vercel (`.vercel/project.json` → project `skrolla`, org `team_4aLAbYk0qPZR0U0bw1R3Eoun`);
   `vercel --prod` from this directory ships it. Firebase Hosting (`skrolla-app-2026`) was
   considered but Vercel is what's actually wired.

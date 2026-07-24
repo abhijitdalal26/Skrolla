@@ -134,27 +134,6 @@ if (heroStage && heroPhoneWrap && matchMedia('(hover: hover)').matches && !match
   });
 }
 
-// ============================================================
-// Waitlist form — local-only capture (no backend wired yet)
-// ============================================================
-const waitlistForm = document.getElementById('waitlistForm');
-if (waitlistForm) {
-  waitlistForm.addEventListener('submit', (e) => {
-    e.preventDefault();
-    const email = document.getElementById('waitlistEmail').value.trim();
-    if (!email) return;
-
-    try {
-      const list = JSON.parse(localStorage.getItem('skrolla_waitlist') || '[]');
-      list.push({ email, ts: Date.now() });
-      localStorage.setItem('skrolla_waitlist', JSON.stringify(list));
-    } catch (err) { /* localStorage unavailable — ignore */ }
-
-    document.getElementById('formNote').style.display = 'none';
-    waitlistForm.style.display = 'none';
-    document.getElementById('formSuccess').style.display = 'block';
-  });
-}
 
 // ============================================================
 // Interactive StoryMode Mockup (Dune)
