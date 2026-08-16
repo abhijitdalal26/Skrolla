@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <title>Skrolla — Try in Browser</title>
+  <meta name="description" content="Try Skrolla in your browser. TikTok-style book discovery feed, live catalog search, 398+ tags, and interactive StoryMode AI chat before you download the Android app.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Newsreader:ital,opsz,wght@0,6..72,500;0,6..72,600;1,6..72,500;1,6..72,600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/demo.css">
+  <link rel="icon" type="image/svg+xml" href="images/Logo-Final-v2/combined-bg-fg.svg">
+</head>
+<body>
+
+  <!-- Ambient Glow Effects -->
+  <div class="ambient-glow orb-1"></div>
+  <div class="ambient-glow orb-2"></div>
+
+  <!-- App Wrapper -->
+  <div class="app-layout">
+    
+    <!-- DESKTOP / LAPTOP SIDEBAR NAVIGATION -->
+    <aside class="desktop-sidebar">
+      <div class="sidebar-top">
+        <a href="index.html" class="sidebar-logo">
+          <img src="images/Logo-Final-v2/combined-bg-fg.svg" alt="Skrolla logo">
+          <span>Skrolla</span>
+        </a>
+        <div class="sidebar-badge">In Browser</div>
+      </div>
+
+      <!-- Theme Switcher Button -->
+      <button class="theme-toggle-btn" id="themeToggleBtn">
+        <span class="theme-icon sun-icon">☀️</span>
+        <span class="theme-icon moon-icon">🌙</span>
+        <span class="theme-text">Switch Theme</span>
+      </button>
+
+      <nav class="sidebar-menu">
+        <button class="nav-item active" data-tab="home">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+          <span>Home</span>
+        </button>
+        <button class="nav-item" data-tab="feed">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
+          <span>For You Feed</span>
+          <span class="live-dot-pulse"></span>
+        </button>
+        <button class="nav-item" data-tab="search">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          <span>Search</span>
+        </button>
+        <!-- Laptop Desktop Tag Explorer Tab -->
+        <button class="nav-item desktop-only-tab" data-tab="tags">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7"/></svg>
+          <span>Browse Tags (398+)</span>
+        </button>
+        <button class="nav-item" data-tab="library">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+          <span>Library</span>
+          <span class="badge-count" id="savedCountBadge">0</span>
+        </button>
+      </nav>
+
+      <div class="sidebar-bottom">
+        <div class="catalog-status">
+          <span class="status-indicator"></span>
+          <span><b>74.7K</b> Live Catalog Books</span>
+        </div>
+        <a href="https://play.google.com/store/apps/details?id=com.skrolla.app" target="_blank" rel="noopener" class="sidebar-play-btn">
+          <svg width="22" height="22" viewBox="0 0 512 512" fill="none">
+            <path d="M48.71 18.06c-4.4 4.67-6.9 12.01-6.9 21.65v432.58c0 9.64 2.5 16.98 6.9 21.65l2.42 2.37 242.06-242.06v-5.69L51.13 15.69l-2.42 2.37z" fill="url(#play_a1)"/>
+            <path d="M374.39 329.56l-81.1-81.1v-5.69l81.1-81.1 2.76 1.6 96.02 54.55c27.42 15.58 27.42 41.15 0 56.73l-96.02 54.55-2.76 1.6z" fill="url(#play_b1)"/>
+            <path d="M296.05 245.72L51.13 490.64c9.02 9.54 23.86 10.74 40.54 1.28l282.72-160.63-78.34-85.57z" fill="url(#play_c1)"/>
+            <path d="M296.05 266.28l78.34-85.57L91.67 20.08c-16.68-9.46-31.52-8.26-40.54 1.28l244.92 244.92z" fill="url(#play_d1)"/>
+            <defs>
+              <linearGradient id="play_a1" x1="262.17" y1="28.98" x2="42.82" y2="484.77" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#00a0ff"/><stop offset="1" stop-color="#00a1ff"/></linearGradient>
+              <linearGradient id="play_b1" x1="517.91" y1="256.02" x2="280.95" y2="256.02" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#ffcc00"/><stop offset="1" stop-color="#ffa000"/></linearGradient>
+              <linearGradient id="play_c1" x1="330.82" y1="279.79" x2="71.74" y2="538.87" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#ff3a44"/><stop offset="1" stop-color="#c31162"/></linearGradient>
+              <linearGradient id="play_d1" x1="71.74" y1="-26.83" x2="330.82" y2="232.25" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#32a071"/><stop offset="1" stop-color="#2da771"/></linearGradient>
+            </defs>
+          </svg>
+          <span>GET IT ON <strong style="display:block;font-size:14px;line-height:1;">Google Play</strong></span>
+        </a>
+      </div>
+    </aside>
+
+    <!-- MOBILE TOP BAR -->
+    <header class="mobile-top-bar">
+      <a href="index.html" class="mobile-logo">
+        <img src="images/Logo-Final-v2/combined-bg-fg.svg" alt="Skrolla">
+        <span>Skrolla</span>
+      </a>
+      <div class="mobile-top-actions">
+        <button class="mobile-theme-btn" id="mobileThemeBtn">🌙</button>
+        <a href="https://play.google.com/store/apps/details?id=com.skrolla.app" target="_blank" rel="noopener" class="mobile-app-btn">
+          Get App
+        </a>
+      </div>
+    </header>
+
+    <!-- MAIN CONTENT VIEW AREA -->
+    <main class="main-content">
+
+      <!-- ==================== 1. HOME TAB ==================== -->
+      <section class="tab-view active" id="tab-home">
+        <!-- Daily Discovery Hero -->
+        <div class="home-hero-card" id="homeHeroCard">
+          <div class="hero-bg-blur" id="heroBgBlur"></div>
+          <div class="hero-card-inner">
+            <div class="hero-cover-wrap">
+              <img id="heroCoverImg" src="" alt="Book Cover" class="hero-cover">
+            </div>
+            <div class="hero-info">
+              <div class="hero-eyebrow">✨ Daily Discovery</div>
+              <h1 class="hero-title" id="heroTitle">Loading Daily Pick...</h1>
+              <div class="hero-author" id="heroAuthor">Author</div>
+              <p class="hero-desc" id="heroDesc">Fetching recommendation from Supabase catalog...</p>
+              <div class="hero-tags" id="heroTags"></div>
+              <div class="hero-actions-row">
+                <button class="btn-hero-chat" id="heroChatBtn">
+                  💬 Ask StoryMode
+                </button>
+                <button class="btn-hero-save" id="heroSaveBtn">
+                  🔖 Save
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Shelf Sections -->
+        <div class="shelf-container">
+          <!-- Shelf 1: Picked for You -->
+          <div class="shelf-section">
+            <div class="shelf-header">
+              <h2>Picked for You</h2>
+              <button class="shelf-see-all" id="exploreFeedBtn">Explore Feed &rarr;</button>
+            </div>
+            <div class="shelf-carousel" id="shelfPicked">
+              <div class="skeleton-card"></div><div class="skeleton-card"></div><div class="skeleton-card"></div><div class="skeleton-card"></div>
+            </div>
+          </div>
+
+          <!-- Shelf 2: NYT Bestsellers -->
+          <div class="shelf-section">
+            <div class="shelf-header">
+              <h2>🏆 NYT Bestsellers</h2>
+            </div>
+            <div class="shelf-carousel" id="shelfNyt">
+              <div class="skeleton-card"></div><div class="skeleton-card"></div><div class="skeleton-card"></div><div class="skeleton-card"></div>
+            </div>
+          </div>
+
+          <!-- Shelf 3: Sci-Fi & Fantasy -->
+          <div class="shelf-section">
+            <div class="shelf-header">
+              <h2>🚀 Sci-Fi &amp; Fantasy</h2>
+            </div>
+            <div class="shelf-carousel" id="shelfScifi">
+              <div class="skeleton-card"></div><div class="skeleton-card"></div><div class="skeleton-card"></div><div class="skeleton-card"></div>
+            </div>
+          </div>
+
+          <!-- Shelf 4: Highly Rated -->
+          <div class="shelf-section">
+            <div class="shelf-header">
+              <h2>⭐ Highly Rated Readers' Favorites</h2>
+            </div>
+            <div class="shelf-carousel" id="shelfPopular">
+              <div class="skeleton-card"></div><div class="skeleton-card"></div><div class="skeleton-card"></div><div class="skeleton-card"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================== 2. FOR YOU FEED TAB ==================== -->
+      <section class="tab-view" id="tab-feed">
+        <div class="feed-layout">
+          <!-- Laptop/Mobile Reels Container -->
+          <div class="reels-stage" id="reelsStage">
+            <!-- Dynamic Reel Cards rendered by JS -->
+            <div class="reels-loader" id="reelsLoader">
+              <div class="spinner"></div>
+              <span>Connecting to Live Supabase Feed...</span>
+            </div>
+          </div>
+
+          <!-- Desktop Side Detail Panel (visible on laptops/desktops) -->
+          <div class="feed-side-panel" id="feedSidePanel">
+            <div class="side-panel-empty" id="sidePanelEmpty">
+              <p>Swipe or scroll through covers to explore book details &amp; ask StoryMode.</p>
+            </div>
+            <div class="side-panel-content hidden" id="sidePanelContent">
+              <div class="side-book-header">
+                <span class="side-badge" id="sideBadge">For You</span>
+                <h2 id="sideTitle">Book Title</h2>
+                <div class="side-author" id="sideAuthor">Author</div>
+                <div class="side-meta">
+                  <span id="sideRating">⭐ 4.2</span>
+                  <span class="dot">•</span>
+                  <span id="sideYear">2023</span>
+                </div>
+              </div>
+
+              <div class="side-genres-list" id="sideGenres"></div>
+
+              <div class="side-desc-box">
+                <h4>Synopsis</h4>
+                <p id="sideDesc">Book description text...</p>
+              </div>
+
+              <div class="side-action-buttons">
+                <button class="btn-side-chat" id="sideChatBtn">
+                  💬 Ask StoryMode AI
+                </button>
+                <button class="btn-side-save" id="sideSaveBtn">
+                  🔖 Save to Library
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================== 3. SEARCH TAB ==================== -->
+      <section class="tab-view" id="tab-search">
+        <div class="search-view-container">
+          <div class="search-header-box">
+            <h1>Discover Books</h1>
+            <div class="search-input-wrap">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+              <input type="text" id="searchInput" placeholder="Search by title, author, or genre (e.g. Dune, Rowling, Sci-Fi)..." autocomplete="off">
+              <button class="clear-search" id="clearSearchBtn">&times;</button>
+            </div>
+
+            <!-- Quick Genre Filter Chips -->
+            <div class="genre-chips-scroll">
+              <button class="genre-chip active" data-g="all">All Genres</button>
+              <button class="genre-chip" data-g="Fantasy">🧙 Fantasy</button>
+              <button class="genre-chip" data-g="Science Fiction">🚀 Sci-Fi</button>
+              <button class="genre-chip" data-g="Romance">💔 Romance</button>
+              <button class="genre-chip" data-g="Thriller & Mystery">🔪 Thriller</button>
+              <button class="genre-chip" data-g="Literary Fiction">📖 Literary</button>
+              <button class="genre-chip" data-g="Horror">👻 Horror</button>
+              <button class="genre-chip" data-g="Manga">🎌 Manga</button>
+            </div>
+          </div>
+
+          <!-- Search Results Grid -->
+          <div class="search-results-grid" id="searchResultsGrid">
+            <!-- Rendered by JS -->
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================== 4. LAPTOP TAGS & VIBES TAB (398+ TAGS) ==================== -->
+      <section class="tab-view" id="tab-tags">
+        <div class="tags-view-container">
+          <div class="tags-header">
+            <h1>🏷️ Explore 398+ Tags &amp; Vibes</h1>
+            <p>Browse by genre subcategories, moods, themes, and literary tropes across the 74.7k catalog.</p>
+          </div>
+
+          <div class="tags-group-grid" id="tagsGroupGrid">
+            <!-- Dynamic 16 Tag Groups rendered by JS -->
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================== 5. LIBRARY TAB ==================== -->
+      <section class="tab-view" id="tab-library">
+        <div class="library-container">
+          <div class="library-header">
+            <h1>Your Shelf</h1>
+            <p>Books you've saved while exploring the Skrolla web demo.</p>
+          </div>
+
+          <div class="library-tabs">
+            <button class="lib-tab active" data-lib="saved">Saved Books (<span id="savedTabCount">0</span>)</button>
+            <button class="lib-tab" data-lib="chats">StoryMode Chats (<span id="chatsTabCount">0</span>)</button>
+          </div>
+
+          <div class="library-tab-content active" id="libSavedContent">
+            <div class="empty-library-state" id="emptyLibraryState">
+              <div class="empty-icon">🔖</div>
+              <h3>Your shelf is empty</h3>
+              <p>Explore the feed or search catalog and tap "Save" on any book you like!</p>
+              <button class="btn-primary" id="libExploreBtn">Explore For You Feed</button>
+            </div>
+            <div class="library-books-grid" id="libraryBooksGrid"></div>
+          </div>
+
+          <div class="library-tab-content" id="libChatsContent">
+            <div class="library-chats-list" id="libraryChatsList">
+              <div class="empty-library-state">
+                <div class="empty-icon">💬</div>
+                <h3>No chat history yet</h3>
+                <p>Start a conversation with StoryMode on any book to see your chat threads here.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- MOBILE BOTTOM NAVIGATION BAR -->
+    <nav class="mobile-bottom-nav">
+      <button class="nav-item active" data-tab="home">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+        <span>Home</span>
+      </button>
+      <button class="nav-item" data-tab="feed">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
+        <span>For You</span>
+      </button>
+      <button class="nav-item" data-tab="search">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <span>Search</span>
+      </button>
+      <button class="nav-item" data-tab="library">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+        <span>Library</span>
+      </button>
+    </nav>
+  </div>
+
+  <!-- ==================== BOOK DETAIL MODAL ==================== -->
+  <div class="modal-backdrop" id="bookModal">
+    <div class="modal-sheet">
+      <button class="modal-close" id="modalCloseBtn">&times;</button>
+      <div class="modal-body">
+        <div class="modal-cover-col">
+          <img id="modalCoverImg" src="" alt="Book Cover">
+        </div>
+        <div class="modal-info-col">
+          <span class="modal-badge" id="modalBadge">Book Details</span>
+          <h2 id="modalTitle">Book Title</h2>
+          <div class="modal-author" id="modalAuthor">Author</div>
+          <div class="modal-stats-row">
+            <span id="modalRating">⭐ 4.5</span>
+            <span class="dot">•</span>
+            <span id="modalYear">2024</span>
+          </div>
+          <div class="modal-genres-list" id="modalGenres"></div>
+          <div class="modal-desc" id="modalDesc">Synopsis loading...</div>
+          <div class="modal-actions-row">
+            <button class="btn-primary btn-modal-chat" id="modalChatBtn">
+              💬 Ask StoryMode AI
+            </button>
+            <button class="btn-secondary btn-modal-save" id="modalSaveBtn">
+              🔖 Save
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== STORYMODE CHAT MODAL / DRAWER ==================== -->
+  <div class="storymode-drawer" id="storymodeDrawer">
+    <div class="chat-header">
+      <div class="chat-book-info">
+        <img id="chatHeaderCover" src="" alt="Cover">
+        <div>
+          <h3 id="chatHeaderTitle">Book Title</h3>
+          <span class="chat-subtitle">StoryMode AI • Spoiler-Free</span>
+        </div>
+      </div>
+      <button class="chat-close" id="chatCloseBtn">&times;</button>
+    </div>
+
+    <!-- Chat Messages Window -->
+    <div class="chat-messages-container" id="chatMessages">
+      <div class="chat-welcome-card">
+        <div class="welcome-icon">✨</div>
+        <h4>Ask StoryMode Anything</h4>
+        <p>I know the complete story of <b id="welcomeTitle">this book</b>. Ask me about vibes, character dynamics, themes, or pacing before you start reading!</p>
+      </div>
+
+      <!-- Quick Suggestion Prompt Chips -->
+      <div class="prompt-chips-wrap" id="promptChips">
+        <button class="chip-btn" data-prompt="What is the overall vibe and emotional tone of this book?">✨ What's the vibe?</button>
+        <button class="chip-btn" data-prompt="Give me a 3-sentence spoiler-free synopsis of what happens.">📖 Spoiler-free synopsis</button>
+        <button class="chip-btn" data-prompt="Who are the main characters and what drives them?">👥 Main characters</button>
+        <button class="chip-btn" data-prompt="Is this book fast-paced or slow-burn? Heavy or light reading?">⚡ Pacing &amp; mood</button>
+      </div>
+    </div>
+
+    <!-- Chat Input Area -->
+    <div class="chat-input-bar">
+      <input type="text" id="chatInput" placeholder="Ask StoryMode anything about this book..." autocomplete="off">
+      <button id="chatSendBtn" class="send-btn" aria-label="Send message">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+      </button>
+    </div>
+  </div>
+
+  <script src="js/demo.js"></script>
+</body>
+</html>

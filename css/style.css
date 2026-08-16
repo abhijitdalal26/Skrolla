@@ -1899,6 +1899,162 @@ footer .fine { font-size: 12.5px; color: var(--text-muted); width: 100%; text-al
   }
 }
 
+/* ============================================================
+   Play Store & Web Demo CTAs
+   ============================================================ */
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.nav-demo {
+  color: var(--text-secondary);
+  font-weight: 600;
+  font-size: 13.5px;
+  padding: 8px 14px;
+  border-radius: 100px;
+  transition: color 0.2s, background-color 0.2s;
+  text-decoration: none;
+}
+.nav-demo:hover {
+  color: var(--text-primary);
+  background-color: var(--bg-surface-hover);
+}
+.live-dot {
+  background-color: #22c55e !important;
+  box-shadow: 0 0 10px rgba(34, 197, 94, 0.6);
+}
+.btn-play {
+  background: #000000 !important;
+  border: 1px solid rgba(255, 255, 255, 0.2) !important;
+  color: #ffffff !important;
+  gap: 12px !important;
+  padding: 10px 22px !important;
+  border-radius: 12px !important;
+  font-size: 11px !important;
+  font-weight: 500 !important;
+  letter-spacing: 0.05em !important;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.4) !important;
+  text-align: left !important;
+}
+.btn-play:hover {
+  transform: translateY(-2px);
+  background: #111111 !important;
+  border-color: rgba(255, 255, 255, 0.4) !important;
+  box-shadow: 0 8px 26px rgba(0, 0, 0, 0.6) !important;
+}
+.btn-demo {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: var(--text-primary);
+  padding: 14px 24px;
+  border-radius: 100px;
+  font-weight: 600;
+  font-size: 14.5px;
+  text-decoration: none;
+  transition: all 0.25s ease;
+}
+.btn-demo:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.3);
+  transform: translateY(-2px);
+}
+
+.download-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+  max-width: 780px;
+  margin: 36px auto 0;
+  text-align: left;
+}
+.download-card {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  padding: 24px 28px;
+  border-radius: 20px;
+  background: var(--bg-surface);
+  border: 1px solid var(--separator);
+  text-decoration: none;
+  color: inherit;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+  overflow: hidden;
+}
+.download-card.primary-card {
+  background: linear-gradient(135deg, rgba(16, 185, 129, 0.1) 0%, rgba(22, 24, 32, 0.8) 100%);
+  border-color: rgba(16, 185, 129, 0.3);
+}
+.download-card.demo-card {
+  background: linear-gradient(135deg, rgba(139, 92, 246, 0.1) 0%, rgba(22, 24, 32, 0.8) 100%);
+  border-color: rgba(139, 92, 246, 0.3);
+}
+.download-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
+}
+.download-card.primary-card:hover {
+  border-color: rgba(16, 185, 129, 0.6);
+}
+.download-card.demo-card:hover {
+  border-color: rgba(139, 92, 246, 0.6);
+}
+.download-card .card-icon {
+  width: 54px;
+  height: 54px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.download-card.primary-card .card-icon {
+  background: rgba(16, 185, 129, 0.15);
+  color: #10b981;
+}
+.download-card.demo-card .card-icon {
+  background: rgba(139, 92, 246, 0.15);
+  color: #a78bfa;
+}
+.download-card .card-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+.download-card .card-tag {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 4px;
+}
+.download-card.primary-card .card-tag { color: #10b981; }
+.download-card.demo-card .card-tag { color: #a78bfa; }
+.download-card .card-title {
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 4px;
+}
+.download-card .card-desc {
+  font-size: 13px;
+  color: var(--text-secondary);
+  line-height: 1.4;
+}
+.download-card .arrow-icon {
+  font-size: 20px;
+  color: var(--text-secondary);
+  transition: transform 0.25s, color 0.25s;
+}
+.download-card:hover .arrow-icon {
+  transform: translateX(4px);
+  color: var(--text-primary);
+}
+
 @media (max-width: 375px) {
   .nav {
     padding: max(14px, env(safe-area-inset-top, 14px) + 6px) 14px 14px;
