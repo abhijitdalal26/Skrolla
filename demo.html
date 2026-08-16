@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark">
+<html lang="en" data-theme="light">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
@@ -10,6 +10,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Newsreader:ital,opsz,wght@0,6..72,500;0,6..72,600;1,6..72,500;1,6..72,600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/demo.css">
   <link rel="icon" type="image/svg+xml" href="images/Logo-Final-v2/combined-bg-fg.svg">
+  <script src="https://unpkg.com/lucide@latest"></script>
 </head>
 <body>
 
@@ -54,7 +55,7 @@
         <!-- Laptop Desktop Tag Explorer Tab -->
         <button class="nav-item desktop-only-tab" data-tab="tags">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7"/></svg>
-          <span>Browse Tags (398+)</span>
+          <span>Browse Tags</span>
         </button>
         <button class="nav-item" data-tab="library">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
@@ -105,29 +106,41 @@
 
       <!-- ==================== 1. HOME TAB ==================== -->
       <section class="tab-view active" id="tab-home">
-        <!-- Daily Discovery Hero -->
-        <div class="home-hero-card" id="homeHeroCard">
-          <div class="hero-bg-blur" id="heroBgBlur"></div>
-          <div class="hero-card-inner">
-            <div class="hero-cover-wrap">
-              <img id="heroCoverImg" src="" alt="Book Cover" class="hero-cover">
-            </div>
-            <div class="hero-info">
-              <div class="hero-eyebrow">✨ Daily Discovery</div>
-              <h1 class="hero-title" id="heroTitle">Loading Daily Pick...</h1>
-              <div class="hero-author" id="heroAuthor">Author</div>
-              <p class="hero-desc" id="heroDesc">Fetching recommendation from Supabase catalog...</p>
-              <div class="hero-tags" id="heroTags"></div>
-              <div class="hero-actions-row">
-                <button class="btn-hero-chat" id="heroChatBtn">
-                  💬 Ask StoryMode
-                </button>
-                <button class="btn-hero-save" id="heroSaveBtn">
-                  🔖 Save
-                </button>
+        <!-- Netflix-Style Hero Carousel -->
+        <div class="home-hero-carousel" id="homeHeroCarousel">
+          <button class="carousel-nav prev" id="heroCarouselPrev" aria-label="Previous Pick">
+            <i data-lucide="chevron-left"></i>
+          </button>
+          
+          <div class="carousel-slides" id="heroCarouselSlides">
+            <div class="hero-bg-blur" id="heroBgBlur"></div>
+            <div class="hero-card-inner">
+              <div class="hero-cover-wrap">
+                <img id="heroCoverImg" src="" alt="Book Cover" class="hero-cover">
+              </div>
+              <div class="hero-info">
+                <div class="hero-eyebrow"><i data-lucide="sparkles"></i> Featured Discovery</div>
+                <h1 class="hero-title" id="heroTitle">Loading Daily Picks...</h1>
+                <div class="hero-author" id="heroAuthor">Author</div>
+                <p class="hero-desc" id="heroDesc">Fetching recommendations from Supabase catalog...</p>
+                <div class="hero-tags" id="heroTags"></div>
+                <div class="hero-actions-row">
+                  <button class="btn-hero-chat" id="heroChatBtn">
+                    <i data-lucide="message-square-text"></i> Ask StoryMode
+                  </button>
+                  <button class="btn-hero-save" id="heroSaveBtn">
+                    <i data-lucide="bookmark"></i> Save
+                  </button>
+                </div>
               </div>
             </div>
           </div>
+
+          <button class="carousel-nav next" id="heroCarouselNext" aria-label="Next Pick">
+            <i data-lucide="chevron-right"></i>
+          </button>
+
+          <div class="carousel-dots" id="heroCarouselDots"></div>
         </div>
 
         <!-- Shelf Sections -->
@@ -177,50 +190,62 @@
 
       <!-- ==================== 2. FOR YOU FEED TAB ==================== -->
       <section class="tab-view" id="tab-feed">
-        <div class="feed-layout">
-          <!-- Laptop/Mobile Reels Container -->
-          <div class="reels-stage" id="reelsStage">
-            <!-- Dynamic Reel Cards rendered by JS -->
-            <div class="reels-loader" id="reelsLoader">
-              <div class="spinner"></div>
-              <span>Connecting to Live Supabase Feed...</span>
-            </div>
+        <div class="feed-slide-layout">
+          <!-- Navigation Arrow Left -->
+          <button class="feed-nav-arrow prev disabled" id="feedPrevBtn" aria-label="Previous Book">
+            <i data-lucide="chevron-left"></i>
+          </button>
+
+          <!-- Loader element -->
+          <div class="feed-loader" id="feedLoader">
+            <div class="spinner"></div>
+            <span>Connecting to Live Supabase Feed...</span>
           </div>
 
-          <!-- Desktop Side Detail Panel (visible on laptops/desktops) -->
-          <div class="feed-side-panel" id="feedSidePanel">
-            <div class="side-panel-empty" id="sidePanelEmpty">
-              <p>Swipe or scroll through covers to explore book details &amp; ask StoryMode.</p>
+          <!-- Slide Content Area -->
+          <div class="feed-slide-content hidden" id="feedSlideContent">
+            <!-- Left Column: Cover Column -->
+            <div class="feed-cover-col">
+              <div class="feed-cover-wrap">
+                <img id="feedCoverImg" src="" alt="Book Cover">
+              </div>
             </div>
-            <div class="side-panel-content hidden" id="sidePanelContent">
-              <div class="side-book-header">
-                <span class="side-badge" id="sideBadge">For You</span>
-                <h2 id="sideTitle">Book Title</h2>
-                <div class="side-author" id="sideAuthor">Author</div>
-                <div class="side-meta">
-                  <span id="sideRating">⭐ 4.2</span>
+
+            <!-- Right Column: Info Column -->
+            <div class="feed-info-col">
+              <div class="feed-book-header">
+                <span class="feed-badge">✨ For You</span>
+                <h2 id="feedTitle">Book Title</h2>
+                <div class="feed-author-line">by <span class="author-click-btn" id="feedAuthor">Author</span></div>
+                <div class="feed-stats-row">
+                  <span id="feedRating"><i data-lucide="star"></i> 4.5</span>
                   <span class="dot">•</span>
-                  <span id="sideYear">2023</span>
+                  <span id="feedYear">2024</span>
                 </div>
               </div>
 
-              <div class="side-genres-list" id="sideGenres"></div>
+              <div class="feed-genres-list" id="feedGenres"></div>
 
-              <div class="side-desc-box">
+              <div class="feed-desc-box">
                 <h4>Synopsis</h4>
-                <p id="sideDesc">Book description text...</p>
+                <p id="feedDesc">Synopsis text...</p>
               </div>
 
-              <div class="side-action-buttons">
-                <button class="btn-side-chat" id="sideChatBtn">
-                  💬 Ask StoryMode AI
+              <div class="feed-actions-row">
+                <button class="btn-primary btn-feed-chat" id="feedChatBtn">
+                  <i data-lucide="message-square-text"></i> Ask StoryMode AI
                 </button>
-                <button class="btn-side-save" id="sideSaveBtn">
-                  🔖 Save to Library
+                <button class="btn-secondary btn-feed-save" id="feedSaveBtn">
+                  <i data-lucide="bookmark"></i> Save to Library
                 </button>
               </div>
             </div>
           </div>
+
+          <!-- Navigation Arrow Right -->
+          <button class="feed-nav-arrow next" id="feedNextBtn" aria-label="Next Book">
+            <i data-lucide="chevron-right"></i>
+          </button>
         </div>
       </section>
 
@@ -259,7 +284,7 @@
       <section class="tab-view" id="tab-tags">
         <div class="tags-view-container">
           <div class="tags-header">
-            <h1>🏷️ Explore 398+ Tags &amp; Vibes</h1>
+            <h1><i data-lucide="tags" class="header-icon"></i> Explore Tags &amp; Vibes</h1>
             <p>Browse by genre subcategories, moods, themes, and literary tropes across the 74.7k catalog.</p>
           </div>
 
@@ -298,6 +323,68 @@
                 <div class="empty-icon">💬</div>
                 <h3>No chat history yet</h3>
                 <p>Start a conversation with StoryMode on any book to see your chat threads here.</p>
+              </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================== 6. DEDICATED BOOK DETAILS TAB ==================== -->
+      <section class="tab-view" id="tab-book-details">
+        <div class="book-details-container">
+          <button class="btn-details-back" id="detailsBackBtn">
+            <i data-lucide="arrow-left"></i> Back
+          </button>
+          
+          <div class="details-grid">
+            <!-- Left Column: Cover & Quick Actions -->
+            <div class="details-left-col">
+              <div class="details-cover-wrapper">
+                <div class="details-bg-glow" id="detailsBgGlow"></div>
+                <img id="detailsCoverImg" src="" alt="Book Cover" class="details-cover">
+              </div>
+              
+              <div class="details-meta-box">
+                <div class="meta-item">
+                  <span class="meta-label">Average Rating</span>
+                  <span class="meta-value" id="detailsRating"><i data-lucide="star"></i> 4.5</span>
+                </div>
+                <div class="meta-item">
+                  <span class="meta-label">Published</span>
+                  <span class="meta-value" id="detailsYear">2024</span>
+                </div>
+              </div>
+              
+              <div class="details-actions">
+                <button class="btn-primary btn-details-chat" id="detailsChatBtn">
+                  <i data-lucide="message-square-text"></i> Ask StoryMode AI
+                </button>
+                <button class="btn-secondary btn-details-save" id="detailsSaveBtn">
+                  <i data-lucide="bookmark"></i> Save to Shelf
+                </button>
+              </div>
+            </div>
+            
+            <!-- Right Column: Info & Related Books -->
+            <div class="details-right-col">
+              <h1 class="details-title" id="detailsTitle">Book Title</h1>
+              <div class="details-author" id="detailsAuthor">by Author Name</div>
+              
+              <div class="details-genres" id="detailsGenres"></div>
+              
+              <div class="details-synopsis-section">
+                <h2>Synopsis</h2>
+                <p class="details-desc" id="detailsDesc">Synopsis loading...</p>
+              </div>
+              
+              <!-- Related Books Shelf -->
+              <div class="related-books-section">
+                <div class="shelf-header">
+                  <h2>Similar Reads You Might Like</h2>
+                </div>
+                <div class="shelf-carousel" id="detailsRelatedCarousel">
+                  <!-- Dynamically populated related books -->
+                  <div class="skeleton-card"></div><div class="skeleton-card"></div><div class="skeleton-card"></div><div class="skeleton-card"></div>
+                </div>
               </div>
             </div>
           </div>
@@ -340,7 +427,7 @@
           <h2 id="modalTitle">Book Title</h2>
           <div class="modal-author" id="modalAuthor">Author</div>
           <div class="modal-stats-row">
-            <span id="modalRating">⭐ 4.5</span>
+            <span id="modalRating"><i data-lucide="star"></i> 4.5</span>
             <span class="dot">•</span>
             <span id="modalYear">2024</span>
           </div>
@@ -348,10 +435,10 @@
           <div class="modal-desc" id="modalDesc">Synopsis loading...</div>
           <div class="modal-actions-row">
             <button class="btn-primary btn-modal-chat" id="modalChatBtn">
-              💬 Ask StoryMode AI
+              <i data-lucide="message-square-text"></i> Ask StoryMode AI
             </button>
             <button class="btn-secondary btn-modal-save" id="modalSaveBtn">
-              🔖 Save
+              <i data-lucide="bookmark"></i> Save
             </button>
           </div>
         </div>

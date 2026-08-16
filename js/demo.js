@@ -9,67 +9,83 @@ const R2_COVER_CDN = "https://pub-77f77d9160fd473c8b4e4e7ca1aa2e18.r2.dev/";
 // Categorized 398+ Tag Catalog
 const TAG_CATALOG = [
   {
-    title: "🧙 1. Fantasy & Magic",
+    title: "Fantasy & Magic",
+    icon: "wand-2",
     tags: ["Fantasy", "Arthurian Fantasy", "Contemporary Fantasy", "Cozy Fantasy", "Dark Fantasy", "Epic Fantasy", "Fae & Folk Fantasy", "Fairy Tale", "Fairy Tale Retelling", "Gothic Fantasy", "Grimdark", "Heroic Fantasy", "High Fantasy", "Historical Fantasy", "Isekai", "LitRPG", "Low Fantasy", "Magical Realism", "Middle Grade Fantasy", "Mythological Fantasy", "Portal Fantasy", "Progression Fantasy", "Romantasy", "Sword & Sorcery", "Urban Fantasy", "Chosen One", "Dragons", "Gods", "Immortality", "Magic", "Magic Schools", "Mermaids & Sirens", "Mythology", "Prophecy", "Quest", "Witches"]
   },
   {
-    title: "🚀 2. Science Fiction & Future Worlds",
+    title: "Science Fiction & Future Worlds",
+    icon: "rocket",
     tags: ["Science Fiction", "Alien Invasion", "Alternate History", "Climate Fiction", "Cyberpunk", "Dystopian Sci-Fi", "First Contact", "Hard Sci-Fi", "Military Sci-Fi", "Near-Future Thriller", "Post-Apocalyptic", "Solarpunk", "Space Opera", "Speculative Fiction", "Steampunk", "Time Travel", "Aliens", "Artificial Intelligence", "Cybernetics", "Dystopia", "Genetic Engineering", "Pandemic", "Parallel Universes", "Robotics", "Space", "Space Travel", "Transhumanism", "Virtual Reality"]
   },
   {
-    title: "👻 3. Horror & Supernatural",
+    title: "Horror & Supernatural",
+    icon: "ghost",
     tags: ["Horror", "Body Horror", "Cosmic Horror", "Creature Horror", "Folk Horror", "Gothic Horror", "Haunted House", "Paranormal Horror", "Psychological Horror", "Slasher", "Supernatural Horror", "Angels", "Demons", "Ghosts", "Monsters", "Vampires", "Werewolves", "Zombies"]
   },
   {
-    title: "🕵️ 4. Mystery & Crime",
+    title: "Mystery & Crime",
+    icon: "fingerprint",
     tags: ["Mystery", "Crime", "Amateur Sleuth", "Cozy Mystery", "Detective Fiction", "Forensic Mystery", "Hardboiled Crime", "Heist", "Historical Mystery", "Locked Room Mystery", "Murder Mystery", "Noir", "Police Procedural", "Espionage", "Investigation", "Organized Crime", "Unreliable Narrator"]
   },
   {
-    title: "🔪 5. Thriller & Suspense",
+    title: "Thriller & Suspense",
+    icon: "shield-alert",
     tags: ["Thriller", "Action Thriller", "Conspiracy Thriller", "Domestic Thriller", "Financial Thriller", "Legal Thriller", "Medical Thriller", "Paranormal Thriller", "Political Thriller", "Psychological Thriller", "Romantic Suspense", "Spy Thriller", "Techno Thriller"]
   },
   {
-    title: "💔 6. Romance & Tropes",
+    title: "Romance & Tropes",
+    icon: "heart",
     tags: ["Romance", "Age Gap Romance", "Billionaire Romance", "Clean Romance", "Contemporary Romance", "Dark Romance", "Enemies to Lovers", "Fake Dating", "Forced Proximity", "Friends to Lovers", "Gothic Romance", "Historical Romance", "LGBTQ+ Romance", "Mafia Romance", "Paranormal Romance", "Romantic Comedy", "Second Chance Romance", "Slow Burn", "Sports Romance"]
   },
   {
-    title: "⚔️ 7. History & War",
+    title: "History & War",
+    icon: "landmark",
     tags: ["History", "Historical Fiction", "Ancient History", "Cold War History", "Colonial History", "Cultural History", "Medieval History", "Military History", "Modern History", "Family Saga", "Historical Adventure", "War Fiction", "World War I", "World War II", "Holocaust", "Medieval", "Empire"]
   },
   {
-    title: "📖 8. Literary & Contemporary Fiction",
+    title: "Literary & Contemporary Fiction",
+    icon: "book-open",
     tags: ["Literary Fiction", "Contemporary Fiction", "Classics", "Short Stories", "Poetry", "Humor", "Young Adult", "New Adult", "Autofiction", "Campus Novel", "Coming of Age", "Dark Academia", "Dual Timeline", "Epistolary", "Southern Gothic", "Surrealism", "Diverse Voices"]
   },
   {
-    title: "🎌 9. Manga, Comics & Graphic Novels",
+    title: "Manga, Comics & Graphic Novels",
+    icon: "image",
     tags: ["Manga", "Graphic Novels", "Josei", "Magical Girl", "Manhua", "Manhwa", "Mecha", "Seinen", "Shōjo", "Shōnen", "Sports Manga", "Webcomic", "Graphic Memoir"]
   },
   {
-    title: "👤 10. Biography & Memoir",
+    title: "Biography & Memoir",
+    icon: "user",
     tags: ["Biography", "Memoir", "Celebrity Biography", "Childhood Memoir", "Food Memoir", "Literary Biography", "Music Biography", "Political Biography", "Sports Biography", "Travel Memoir", "War Memoir"]
   },
   {
-    title: "🧠 11. Self-Help, Psychology & Wellness",
+    title: "Self-Help, Psychology & Wellness",
+    icon: "brain",
     tags: ["Self-Help", "Psychology", "Behavioral Psychology", "Cognitive Psychology", "Habits & Behavior", "Mindfulness", "Positive Psychology", "Recovery Memoir", "Relationships", "Social Psychology", "Trauma & Recovery", "Wellness", "Behavioral Economics"]
   },
   {
-    title: "💼 12. Business, Career & Money",
+    title: "Business, Career & Money",
+    icon: "briefcase",
     tags: ["Business", "Business Biography", "Career Development", "Communication", "Entrepreneurship", "Investing", "Leadership", "Management", "Marketing", "Personal Finance", "Productivity", "Startup"]
   },
   {
-    title: "🔬 13. Science & Big Ideas",
+    title: "Science & Big Ideas",
+    icon: "microscope",
     tags: ["Science", "Philosophy", "Religion & Spirituality", "Astronomy", "Biology", "Chemistry", "Cosmology", "Genetics", "Mathematics", "Neuroscience", "Physics", "Popular Science", "Ethics", "Existentialism", "Stoicism"]
   },
   {
-    title: "🌍 14. Travel, Food, Sports & Culture",
+    title: "Travel, Food, Sports & Culture",
+    icon: "globe",
     tags: ["Travel", "Food & Cooking", "Sports", "Baking", "Wine & Drinks", "World Cuisine", "Football", "Basketball", "Ancient Greece", "Ancient Rome", "China", "India", "Japan", "Exploration", "Mountains", "Ocean", "Art", "Music"]
   },
   {
-    title: "❤️ 15. Themes & Life Topics",
+    title: "Themes & Life Topics",
+    icon: "bookmark",
     tags: ["Love", "Family", "Friendship", "Found Family", "Betrayal", "Revenge", "Loyalty", "Secrets", "Identity", "Self-Discovery", "Grief", "Loss", "Mental Health", "Redemption", "Justice", "Power", "Survival", "Hope", "Freedom", "Feminism", "Corruption", "Revolution"]
   },
   {
-    title: "✨ 16. Mood & Vibe",
+    title: "Mood & Vibe",
+    icon: "sparkles",
     tags: ["Cozy", "Feel-Good", "Funny", "Uplifting", "Warm", "Hopeful", "Emotional", "Heartbreaking", "Nostalgic", "Dark", "Gritty", "Intense", "Suspenseful", "Thrilling", "Fast-Paced", "Slow Burn", "Gripping", "Atmospheric", "Mysterious", "Spooky", "Romantic", "Spicy", "Witty", "Thought-Provoking", "Whimsical", "Melancholic"]
   }
 ];
@@ -77,7 +93,7 @@ const TAG_CATALOG = [
 // State Manager
 const state = {
   activeTab: "home",
-  theme: localStorage.getItem("skrolla_theme") || "dark",
+  theme: "light",
   seenIsbns: new Set(),
   likedIsbns: new Set(),
   savedBooks: JSON.parse(localStorage.getItem("skrolla_saved_books") || "[]"),
@@ -135,6 +151,9 @@ document.addEventListener("DOMContentLoaded", () => {
   // Load initial catalog data
   loadHomeShelves();
   loadPersonalizedFeed();
+  if (window.lucide) {
+    lucide.createIcons();
+  }
 });
 
 // ============================================================
@@ -189,9 +208,16 @@ function setupNavigation() {
   if (libExploreBtn) {
     libExploreBtn.addEventListener("click", () => switchTab("feed"));
   }
+  const detailsBackBtn = document.getElementById("detailsBackBtn");
+  if (detailsBackBtn) {
+    detailsBackBtn.addEventListener("click", () => {
+      switchTab(state.previousTab || "home");
+    });
+  }
 }
 
 function switchTab(tabId) {
+  state.previousTab = state.activeTab;
   state.activeTab = tabId;
   navItems.forEach(item => {
     item.classList.toggle("active", item.dataset.tab === tabId);
@@ -218,9 +244,12 @@ async function loadHomeShelves() {
 
   if (feedRows && feedRows.length > 0) {
     const dailyPicks = feedRows.filter(r => r.section_id === "because_picked" || r.section_id === "discover_new");
-    if (dailyPicks.length > 0) {
-      renderHeroCard(dailyPicks[0]);
+    let heroBooks = dailyPicks.slice(0, 8);
+    if (heroBooks.length < 6) {
+      const extras = feedRows.filter(r => r.section_id === "highly_rated" || r.section_id === "nyt");
+      heroBooks = [...heroBooks, ...extras].slice(0, 8);
     }
+    setupHeroCarousel(heroBooks);
     
     renderShelf("shelfPicked", feedRows.filter(r => r.section_id === "because_picked"));
     renderShelf("shelfNyt", feedRows.filter(r => r.section_id === "nyt"));
@@ -229,7 +258,7 @@ async function loadHomeShelves() {
   } else {
     const fallbackBooks = await callSupabaseRpc("search_books", { query: "fiction", limit_n: 30 });
     if (fallbackBooks && fallbackBooks.length > 0) {
-      renderHeroCard(fallbackBooks[0]);
+      setupHeroCarousel(fallbackBooks.slice(0, 8));
       renderShelf("shelfPicked", fallbackBooks.slice(1, 9));
       renderShelf("shelfNyt", fallbackBooks.slice(9, 17));
       renderShelf("shelfScifi", fallbackBooks.slice(17, 24));
@@ -238,31 +267,146 @@ async function loadHomeShelves() {
   }
 }
 
-function renderHeroCard(book) {
-  const coverUrl = getCoverUrl(book.cover_file);
-  document.getElementById("heroCoverImg").src = coverUrl;
-  document.getElementById("heroBgBlur").style.backgroundImage = `url(${coverUrl})`;
-  document.getElementById("heroTitle").textContent = book.title || "Daily Discovery";
-  document.getElementById("heroAuthor").textContent = `by ${book.author || "Unknown Author"}`;
-  document.getElementById("heroDesc").textContent = book.description || "Discover this highly acclaimed title on Skrolla.";
+let heroCarouselTimer = null;
+let currentHeroIndex = 0;
 
-  const tagsContainer = document.getElementById("heroTags");
-  tagsContainer.innerHTML = "";
-  let genres = [];
-  if (typeof book.genres === "string") {
-    try { genres = JSON.parse(book.genres); } catch (e) { genres = [book.genres]; }
-  } else if (Array.isArray(book.genres)) {
-    genres = book.genres;
-  }
-  genres.slice(0, 3).forEach(g => {
-    const pill = document.createElement("span");
-    pill.className = "tag-pill";
-    pill.textContent = g;
-    tagsContainer.appendChild(pill);
+function setupHeroCarousel(books) {
+  if (!books || books.length === 0) return;
+  
+  const carousel = document.getElementById("homeHeroCarousel");
+  const slides = document.getElementById("heroCarouselSlides");
+  const dotsContainer = document.getElementById("heroCarouselDots");
+  const prevBtn = document.getElementById("heroCarouselPrev");
+  const nextBtn = document.getElementById("heroCarouselNext");
+  
+  if (!carousel || !slides || !dotsContainer) return;
+  
+  currentHeroIndex = 0;
+  
+  // Render pagination dots
+  dotsContainer.innerHTML = "";
+  books.forEach((_, idx) => {
+    const dot = document.createElement("span");
+    dot.className = `carousel-dot ${idx === 0 ? "active" : ""}`;
+    dot.onclick = () => {
+      goToHeroSlide(idx);
+    };
+    dotsContainer.appendChild(dot);
   });
-
-  document.getElementById("heroChatBtn").onclick = () => openStoryModeChat(book);
-  document.getElementById("heroSaveBtn").onclick = () => toggleSaveBook(book);
+  
+  function updateSlide(index) {
+    currentHeroIndex = index;
+    const book = books[index];
+    const coverUrl = getCoverUrl(book.cover_file);
+    
+    // Add fade-out transition class
+    slides.classList.add("fade-out");
+    
+    setTimeout(() => {
+      // Update contents
+      document.getElementById("heroCoverImg").src = coverUrl;
+      document.getElementById("heroBgBlur").style.backgroundImage = `url(${coverUrl})`;
+      document.getElementById("heroTitle").textContent = book.title || "Featured Discovery";
+      document.getElementById("heroAuthor").innerHTML = `by <span class="author-click-btn" onclick="searchByAuthor('${escapeHtml(book.author || '')}')">${escapeHtml(book.author || "Unknown")}</span>`;
+      document.getElementById("heroDesc").textContent = book.description || "Discover this highly acclaimed title on Skrolla.";
+      
+      const tagsContainer = document.getElementById("heroTags");
+      tagsContainer.innerHTML = "";
+      let genres = [];
+      if (typeof book.genres === "string") {
+        try { genres = JSON.parse(book.genres); } catch (e) { genres = [book.genres]; }
+      } else if (Array.isArray(book.genres)) {
+        genres = book.genres;
+      }
+      genres.slice(0, 3).forEach(g => {
+        const pill = document.createElement("span");
+        pill.className = "tag-pill";
+        pill.textContent = g;
+        tagsContainer.appendChild(pill);
+      });
+      
+      // Update action button handlers
+      document.getElementById("heroChatBtn").onclick = (e) => {
+        e.stopPropagation();
+        openStoryModeChat(book);
+      };
+      document.getElementById("heroSaveBtn").onclick = (e) => {
+        e.stopPropagation();
+        toggleSaveBook(book);
+      };
+      
+      // Update slide click to navigate to the new dedicated Details Tab
+      document.getElementById("heroCarouselSlides").onclick = () => {
+        showBookDetails(book);
+      };
+      
+      // Update active dot
+      const dots = dotsContainer.querySelectorAll(".carousel-dot");
+      dots.forEach((dot, idx) => {
+        dot.classList.toggle("active", idx === index);
+      });
+      
+      // Initialize Lucide icons on dynamic content
+      if (window.lucide) {
+        lucide.createIcons();
+      }
+      
+      // Fade in
+      slides.classList.remove("fade-out");
+    }, 350);
+  }
+  
+  function nextHeroSlide() {
+    let nextIdx = (currentHeroIndex + 1) % books.length;
+    updateSlide(nextIdx);
+  }
+  
+  function prevHeroSlide() {
+    let prevIdx = (currentHeroIndex - 1 + books.length) % books.length;
+    updateSlide(prevIdx);
+  }
+  
+  function goToHeroSlide(idx) {
+    updateSlide(idx);
+    resetHeroTimer();
+  }
+  
+  // Set button listeners
+  if (prevBtn) {
+    prevBtn.onclick = (e) => {
+      e.stopPropagation();
+      prevHeroSlide();
+      resetHeroTimer();
+    };
+  }
+  if (nextBtn) {
+    nextBtn.onclick = (e) => {
+      e.stopPropagation();
+      nextHeroSlide();
+      resetHeroTimer();
+    };
+  }
+  
+  function startHeroTimer() {
+    if (heroCarouselTimer) clearInterval(heroCarouselTimer);
+    heroCarouselTimer = setInterval(nextHeroSlide, 5000);
+  }
+  
+  function resetHeroTimer() {
+    startHeroTimer();
+  }
+  
+  // Pause on hover
+  carousel.onmouseenter = () => {
+    if (heroCarouselTimer) clearInterval(heroCarouselTimer);
+  };
+  carousel.onmouseleave = () => {
+    startHeroTimer();
+  };
+  
+  // Render initial slide
+  updateSlide(0);
+  startHeroTimer();
 }
 
 function renderShelf(containerId, books) {
@@ -278,14 +422,14 @@ function renderShelf(containerId, books) {
   books.forEach(b => {
     const card = document.createElement("div");
     card.className = "book-card";
-    card.onclick = () => openBookModal(b);
+    card.onclick = () => showBookDetails(b);
 
     card.innerHTML = `
       <div class="card-cover-wrap">
         <img src="${getCoverUrl(b.cover_file)}" alt="${escapeHtml(b.title)}" loading="lazy">
       </div>
       <div class="card-title">${escapeHtml(b.title)}</div>
-      <div class="card-author">${escapeHtml(b.author || "")}</div>
+      <div class="card-author">by <span class="author-click-btn" onclick="event.stopPropagation(); searchByAuthor('${escapeHtml(b.author || '')}')">${escapeHtml(b.author || "Unknown")}</span></div>
     `;
     container.appendChild(card);
   });
@@ -295,8 +439,11 @@ function renderShelf(containerId, books) {
 // 3. FOR YOU FEED (REELS) ENGINE
 // ============================================================
 async function loadPersonalizedFeed() {
-  const reelsStage = document.getElementById("reelsStage");
-  
+  const loader = document.getElementById("feedLoader");
+  const slideContent = document.getElementById("feedSlideContent");
+  if (loader) loader.classList.remove("hidden");
+  if (slideContent) slideContent.classList.add("hidden");
+
   const books = await callSupabaseRpc("match_books_personalized", {
     seen_isbns: Array.from(state.seenIsbns),
     k: 25,
@@ -305,104 +452,131 @@ async function loadPersonalizedFeed() {
     p_explore_ceiling: 0.90
   });
 
+  let loadedBooks = [];
   if (books && books.length > 0) {
-    state.currentFeedBooks = books;
-    renderReelsFeed(books);
-    updateFeedSidePanel(books[0]);
+    loadedBooks = books;
   } else {
     const fallback = await callSupabaseRpc("search_books", { query: "fantasy", limit_n: 20 });
     if (fallback && fallback.length > 0) {
-      state.currentFeedBooks = fallback;
-      renderReelsFeed(fallback);
-      updateFeedSidePanel(fallback[0]);
+      loadedBooks = fallback;
+    }
+  }
+
+  if (loadedBooks.length > 0) {
+    state.currentFeedBooks = loadedBooks;
+    state.currentFeedIndex = 0;
+    if (loader) loader.classList.add("hidden");
+    if (slideContent) slideContent.classList.remove("hidden");
+    renderFeedSlide(0);
+    setupFeedNavigationControls();
+  } else {
+    if (loader) {
+      loader.innerHTML = "<p>Failed to load feed. Please try again later.</p>";
     }
   }
 }
 
-function renderReelsFeed(books) {
-  const reelsStage = document.getElementById("reelsStage");
-  reelsStage.innerHTML = "";
+function renderFeedSlide(idx) {
+  const books = state.currentFeedBooks;
+  if (!books || books.length === 0 || idx < 0 || idx >= books.length) return;
 
-  books.forEach((b, idx) => {
-    const coverUrl = getCoverUrl(b.cover_file);
-    const card = document.createElement("div");
-    card.className = "reel-card";
-    card.dataset.index = idx;
+  state.currentFeedIndex = idx;
+  const book = books[idx];
+  state.seenIsbns.add(book.isbn13);
 
-    card.innerHTML = `
-      <div class="reel-bg-blur" style="background-image:url('${coverUrl}')"></div>
-      <div class="reel-overlay-gradient"></div>
-      <div class="reel-center-cover">
-        <img src="${coverUrl}" alt="${escapeHtml(b.title)}">
-      </div>
-      <div class="reel-info-layer">
-        <span class="reel-badge">✨ For You</span>
-        <h2 class="reel-title">${escapeHtml(b.title)}</h2>
-        <div class="reel-author">by ${escapeHtml(b.author || "")}</div>
-        <p class="reel-desc">${escapeHtml(b.description || "")}</p>
-      </div>
-      <div class="reel-actions-side">
-        <button class="reel-action-btn chat-trigger" title="Ask StoryMode">💬</button>
-        <button class="reel-action-btn save-trigger" title="Save Book">🔖</button>
-        <button class="reel-action-btn detail-trigger" title="View Details">ℹ️</button>
-      </div>
-    `;
+  const slideContent = document.getElementById("feedSlideContent");
+  if (slideContent) slideContent.classList.remove("active");
 
-    card.querySelector(".chat-trigger").onclick = (e) => { e.stopPropagation(); openStoryModeChat(b); };
-    card.querySelector(".save-trigger").onclick = (e) => { e.stopPropagation(); toggleSaveBook(b); };
-    card.querySelector(".detail-trigger").onclick = (e) => { e.stopPropagation(); openBookModal(b); };
+  setTimeout(() => {
+    // Populate layout elements
+    document.getElementById("feedCoverImg").src = getCoverUrl(book.cover_file);
+    document.getElementById("feedTitle").textContent = book.title;
+    document.getElementById("feedAuthor").innerHTML = `by <span class="author-click-btn" onclick="searchByAuthor('${escapeHtml(book.author || '')}')">${escapeHtml(book.author || "Unknown")}</span>`;
+    document.getElementById("feedRating").innerHTML = `<i data-lucide="star"></i> ${book.avg_rating || "4.5"}`;
+    document.getElementById("feedYear").textContent = book.pub_year || "2024";
 
-    reelsStage.appendChild(card);
-  });
+    // Synopsis collapsible
+    renderToggledDescription("feedDesc", book.description, 280);
 
-  let scrollTimeout;
-  reelsStage.onscroll = () => {
-    clearTimeout(scrollTimeout);
-    scrollTimeout = setTimeout(() => {
-      const idx = Math.round(reelsStage.scrollTop / reelsStage.clientHeight);
-      if (state.currentFeedBooks[idx]) {
-        state.currentFeedIndex = idx;
-        updateFeedSidePanel(state.currentFeedBooks[idx]);
-        state.seenIsbns.add(state.currentFeedBooks[idx].isbn13);
-      }
-    }, 150);
-  };
+    // Genres list
+    const genresList = document.getElementById("feedGenres");
+    genresList.innerHTML = "";
+    let genres = [];
+    if (typeof book.genres === "string") {
+      try { genres = JSON.parse(book.genres); } catch (e) { genres = [book.genres]; }
+    } else if (Array.isArray(book.genres)) {
+      genres = book.genres;
+    }
+    genres.slice(0, 4).forEach(g => {
+      const pill = document.createElement("span");
+      pill.className = "tag-pill";
+      pill.textContent = g;
+      genresList.appendChild(pill);
+    });
+
+    // Action button clicks
+    document.getElementById("feedChatBtn").onclick = (e) => {
+      e.stopPropagation();
+      openStoryModeChat(book);
+    };
+
+    const saveBtn = document.getElementById("feedSaveBtn");
+    const isSaved = state.savedBooks.some(b => b.isbn13 === book.isbn13);
+    saveBtn.innerHTML = isSaved ? `<i data-lucide="bookmark-check"></i> Saved` : `<i data-lucide="bookmark"></i> Save to Library`;
+    saveBtn.onclick = (e) => {
+      e.stopPropagation();
+      toggleSaveBook(book);
+      const updatedSaved = state.savedBooks.some(b => b.isbn13 === book.isbn13);
+      saveBtn.innerHTML = updatedSaved ? `<i data-lucide="bookmark-check"></i> Saved` : `<i data-lucide="bookmark"></i> Save to Library`;
+      if (window.lucide) lucide.createIcons();
+    };
+
+    // Update navigation buttons
+    const prevBtn = document.getElementById("feedPrevBtn");
+    const nextBtn = document.getElementById("feedNextBtn");
+    if (prevBtn) prevBtn.classList.toggle("disabled", idx === 0);
+    if (nextBtn) nextBtn.classList.toggle("disabled", idx === books.length - 1);
+
+    if (slideContent) slideContent.classList.add("active");
+    if (window.lucide) lucide.createIcons();
+  }, 100);
 }
 
-function updateFeedSidePanel(book) {
-  const empty = document.getElementById("sidePanelEmpty");
-  const content = document.getElementById("sidePanelContent");
-  if (!book) {
-    empty.style.display = "flex";
-    content.classList.add("hidden");
-    return;
+function setupFeedNavigationControls() {
+  const prevBtn = document.getElementById("feedPrevBtn");
+  const nextBtn = document.getElementById("feedNextBtn");
+
+  if (prevBtn) {
+    prevBtn.onclick = (e) => {
+      e.stopPropagation();
+      if (state.currentFeedIndex > 0) {
+        renderFeedSlide(state.currentFeedIndex - 1);
+      }
+    };
   }
-  empty.style.display = "none";
-  content.classList.remove("hidden");
 
-  document.getElementById("sideTitle").textContent = book.title;
-  document.getElementById("sideAuthor").textContent = `by ${book.author || "Unknown"}`;
-  document.getElementById("sideRating").textContent = `⭐ ${book.avg_rating || "4.5"}`;
-  document.getElementById("sideYear").textContent = book.pub_year || "2023";
-  document.getElementById("sideDesc").textContent = book.description || "No synopsis available.";
-
-  const genresList = document.getElementById("sideGenres");
-  genresList.innerHTML = "";
-  let genres = [];
-  if (typeof book.genres === "string") {
-    try { genres = JSON.parse(book.genres); } catch (e) { genres = [book.genres]; }
-  } else if (Array.isArray(book.genres)) {
-    genres = book.genres;
+  if (nextBtn) {
+    nextBtn.onclick = (e) => {
+      e.stopPropagation();
+      if (state.currentFeedIndex < state.currentFeedBooks.length - 1) {
+        renderFeedSlide(state.currentFeedIndex + 1);
+      }
+    };
   }
-  genres.forEach(g => {
-    const pill = document.createElement("span");
-    pill.className = "tag-pill";
-    pill.textContent = g;
-    genresList.appendChild(pill);
-  });
 
-  document.getElementById("sideChatBtn").onclick = () => openStoryModeChat(book);
-  document.getElementById("sideSaveBtn").onclick = () => toggleSaveBook(book);
+  // Keyboard navigation support!
+  document.onkeydown = (e) => {
+    if (state.activeTab !== "feed") return;
+    if (e.key === "ArrowLeft") {
+      if (state.currentFeedIndex > 0) {
+        renderFeedSlide(state.currentFeedIndex - 1);
+      }
+    } else if (e.key === "ArrowRight") {
+      if (state.currentFeedIndex < state.currentFeedBooks.length - 1) {
+        renderFeedSlide(state.currentFeedIndex + 1);
+      }
+    }
+  };
 }
 
 // ============================================================
@@ -463,17 +637,20 @@ async function executeSearch(query) {
   books.forEach(b => {
     const card = document.createElement("div");
     card.className = "book-card";
-    card.onclick = () => openBookModal(b);
+    card.onclick = () => showBookDetails(b);
 
     card.innerHTML = `
       <div class="card-cover-wrap">
         <img src="${getCoverUrl(b.cover_file)}" alt="${escapeHtml(b.title)}" loading="lazy">
       </div>
       <div class="card-title">${escapeHtml(b.title)}</div>
-      <div class="card-author">${escapeHtml(b.author || "")}</div>
+      <div class="card-author">by <span class="author-click-btn" onclick="event.stopPropagation(); searchByAuthor('${escapeHtml(b.author || '')}')">${escapeHtml(b.author || "Unknown")}</span></div>
     `;
     grid.appendChild(card);
   });
+  if (window.lucide) {
+    lucide.createIcons();
+  }
 }
 
 // ============================================================
@@ -489,7 +666,7 @@ function setupLaptopTagsSection() {
     card.className = "tag-category-card";
 
     const title = document.createElement("h3");
-    title.textContent = group.title;
+    title.innerHTML = `<i data-lucide="${group.icon || 'tag'}"></i> <span>${group.title}</span>`;
     card.appendChild(title);
 
     const pillsWrap = document.createElement("div");
@@ -513,6 +690,10 @@ function setupLaptopTagsSection() {
     card.appendChild(pillsWrap);
     grid.appendChild(card);
   });
+
+  if (window.lucide) {
+    lucide.createIcons();
+  }
 }
 
 // ============================================================
@@ -562,17 +743,20 @@ function renderLibrary() {
     state.savedBooks.forEach(b => {
       const card = document.createElement("div");
       card.className = "book-card";
-      card.onclick = () => openBookModal(b);
+      card.onclick = () => showBookDetails(b);
 
       card.innerHTML = `
         <div class="card-cover-wrap">
           <img src="${getCoverUrl(b.cover_file)}" alt="${escapeHtml(b.title)}">
         </div>
         <div class="card-title">${escapeHtml(b.title)}</div>
-        <div class="card-author">${escapeHtml(b.author || "")}</div>
+        <div class="card-author">by <span class="author-click-btn" onclick="event.stopPropagation(); searchByAuthor('${escapeHtml(b.author || '')}')">${escapeHtml(b.author || "Unknown")}</span></div>
       `;
       grid.appendChild(card);
     });
+  }
+  if (window.lucide) {
+    lucide.createIcons();
   }
 
   const chatsList = document.getElementById("libraryChatsList");
@@ -613,6 +797,175 @@ function setupModals() {
   modal.onclick = (e) => {
     if (e.target === modal) modal.classList.remove("active");
   };
+}
+
+function renderToggledDescription(elementId, fullText, maxLength = 180) {
+  const container = document.getElementById(elementId);
+  if (!container) return;
+  
+  if (!fullText || fullText.length <= maxLength) {
+    container.textContent = fullText || "";
+    return;
+  }
+  
+  const shortText = fullText.slice(0, maxLength) + "...";
+  container.innerHTML = "";
+  
+  const textSpan = document.createElement("span");
+  textSpan.textContent = shortText;
+  
+  const toggleBtn = document.createElement("button");
+  toggleBtn.className = "btn-text-toggle";
+  toggleBtn.textContent = " Show more";
+  toggleBtn.style.color = "var(--accent)";
+  toggleBtn.style.background = "none";
+  toggleBtn.style.border = "none";
+  toggleBtn.style.cursor = "pointer";
+  toggleBtn.style.fontWeight = "700";
+  toggleBtn.style.display = "inline";
+  toggleBtn.style.padding = "0";
+  toggleBtn.style.marginLeft = "4px";
+  
+  let isExpanded = false;
+  toggleBtn.onclick = (e) => {
+    e.stopPropagation();
+    isExpanded = !isExpanded;
+    textSpan.textContent = isExpanded ? fullText : shortText;
+    toggleBtn.textContent = isExpanded ? " Show less" : " Show more";
+  };
+  
+  container.appendChild(textSpan);
+  container.appendChild(toggleBtn);
+}
+
+function searchByAuthor(authorName) {
+  if (!authorName) return;
+  switchTab("search");
+  const searchInput = document.getElementById("searchInput");
+  if (searchInput) {
+    searchInput.value = authorName;
+    executeSearch(authorName);
+  }
+}
+
+function showBookDetails(book) {
+  state.previousTab = state.activeTab;
+  state.activeBookForModal = book; // Re-use
+  
+  const coverUrl = getCoverUrl(book.cover_file);
+  
+  document.getElementById("detailsCoverImg").src = coverUrl;
+  const glowEl = document.getElementById("detailsBgGlow");
+  if (glowEl) {
+    glowEl.style.backgroundImage = `url(${coverUrl})`;
+  }
+  document.getElementById("detailsTitle").textContent = book.title;
+  document.getElementById("detailsAuthor").innerHTML = `by <span class="author-click-btn" onclick="searchByAuthor('${escapeHtml(book.author || '')}')">${escapeHtml(book.author || "Unknown")}</span>`;
+  
+  document.getElementById("detailsRating").innerHTML = `<i data-lucide="star"></i> ${book.avg_rating || "4.5"}`;
+  document.getElementById("detailsYear").textContent = book.pub_year || "2024";
+  
+  // Synopsis length toggle
+  renderToggledDescription("detailsDesc", book.description, 280);
+  
+  const genresList = document.getElementById("detailsGenres");
+  genresList.innerHTML = "";
+  let genres = [];
+  if (typeof book.genres === "string") {
+    try { genres = JSON.parse(book.genres); } catch (e) { genres = [book.genres]; }
+  } else if (Array.isArray(book.genres)) {
+    genres = book.genres;
+  }
+  genres.forEach(g => {
+    const pill = document.createElement("span");
+    pill.className = "tag-pill";
+    pill.textContent = g;
+    genresList.appendChild(pill);
+  });
+  
+  // Action click bindings
+  document.getElementById("detailsChatBtn").onclick = (e) => {
+    e.stopPropagation();
+    openStoryModeChat(book);
+  };
+  
+  const saveBtn = document.getElementById("detailsSaveBtn");
+  const isSaved = state.savedBooks.some(b => b.isbn13 === book.isbn13);
+  saveBtn.innerHTML = isSaved ? `<i data-lucide="bookmark-check"></i> Saved` : `<i data-lucide="bookmark"></i> Save to Shelf`;
+  saveBtn.onclick = (e) => {
+    e.stopPropagation();
+    toggleSaveBook(book);
+    const updatedSaved = state.savedBooks.some(b => b.isbn13 === book.isbn13);
+    saveBtn.innerHTML = updatedSaved ? `<i data-lucide="bookmark-check"></i> Saved` : `<i data-lucide="bookmark"></i> Save to Shelf`;
+    if (window.lucide) lucide.createIcons();
+  };
+  
+  // Load related recommendations from Supabase
+  loadRelatedBooks(book);
+  
+  // Switch tab
+  switchTab("book-details");
+  
+  // Refresh Lucide Icons
+  if (window.lucide) {
+    lucide.createIcons();
+  }
+}
+
+async function loadRelatedBooks(book) {
+  const container = document.getElementById("detailsRelatedCarousel");
+  if (!container) return;
+  
+  container.innerHTML = `
+    <div class="skeleton-card"></div>
+    <div class="skeleton-card"></div>
+    <div class="skeleton-card"></div>
+    <div class="skeleton-card"></div>
+  `;
+  
+  let genre = "Fiction";
+  let genres = [];
+  if (typeof book.genres === "string") {
+    try { genres = JSON.parse(book.genres); } catch (e) { genres = [book.genres]; }
+  } else if (Array.isArray(book.genres)) {
+    genres = book.genres;
+  }
+  if (genres && genres.length > 0) {
+    genre = genres[0];
+  }
+  
+  const related = await callSupabaseRpc("search_books", {
+    query: genre,
+    limit_n: 8
+  });
+  
+  container.innerHTML = "";
+  if (related && related.length > 0) {
+    const filtered = related.filter(b => b.isbn13 !== book.isbn13).slice(0, 6);
+    if (filtered.length === 0) {
+      container.innerHTML = "<p class='no-results'>No similar books found.</p>";
+      return;
+    }
+    
+    filtered.forEach(b => {
+      const coverUrl = getCoverUrl(b.cover_file);
+      const card = document.createElement("div");
+      card.className = "book-card";
+      card.innerHTML = `
+        <div class="book-cover-wrap">
+          <img src="${coverUrl}" alt="${escapeHtml(b.title)}">
+        </div>
+        <div class="book-card-info">
+          <div class="book-card-title">${escapeHtml(b.title)}</div>
+          <div class="book-card-author">by <span class="author-click-btn" onclick="event.stopPropagation(); searchByAuthor('${escapeHtml(b.author || '')}')">${escapeHtml(b.author || "Unknown")}</span></div>
+        </div>
+      `;
+      card.onclick = () => showBookDetails(b);
+      container.appendChild(card);
+    });
+  } else {
+    container.innerHTML = "<p class='no-results'>No similar books found.</p>";
+  }
 }
 
 function openBookModal(book) {
